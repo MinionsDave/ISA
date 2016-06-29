@@ -1,4 +1,8 @@
 .toolbar .userbox {
-    background-color: #000;
     height: 100%;
+}
+
+.toolbar .userbox img {
+    border-radius: 50%;
+    width: 48px;
 }
