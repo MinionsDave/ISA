@@ -4,7 +4,7 @@
 angular.module('isaAfApp', [
   'isaAfApp.auth',
   'isaAfApp.admin',
-  'isaAfApp.constants',
+  // 'isaAfApp.constants',
   'ngCookies',
   'ngResource',
   'ngSanitize',
