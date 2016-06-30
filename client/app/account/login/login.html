@@ -48,18 +48,31 @@
 </div>-->
 <div layout layout-align="center center" class="login">
   <form name="loginForm" flex="50">
-    <h2 class="md-display-1 text-center">
-      Isa.qa Management System
-    </h2>
+    <div   layout layout-align="center center" layout-margin>
+      <img src="assets/images/logo.png" width="100px" flex="nogrow">
+      <h2 class="md-display-1" flex="nogrow">
+        Isa.qa Management System
+      </h2>
+    </div>
     <md-input-container class="md-block">
       <label>username</label>
-      <input type="text">
+      <input type="text" class="text-center" ng-model="vm.user.username" name="username" required>
+      <div ng-messages="loginForm.username.$error">
+        <div ng-message="required">
+          username is required.
+        </div>
+      </div>
     </md-input-container>
     <md-input-container class="md-block">
       <label>password</label>
-      <input type="password">
+      <input type="password" class="text-center" name="password" ng-model="vm.user.password" required>
+      <div ng-messages="loginForm.password.$error">
+        <div ng-message="required">
+          password is required.
+        </div>
+      </div>
     </md-input-container>
-    <md-button class="button-block md-primary md-raised">
+    <md-button class="button-block md-primary md-raised" ng-disabled="loginForm.$invalid">
       login
     </md-button>
   </form>

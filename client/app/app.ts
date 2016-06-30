@@ -7,6 +7,7 @@ angular.module('isaAfApp', [
   'isaAfApp.constants',
   'ngCookies',
   'ngResource',
+  'ngMessages',
   'ngSanitize',
   'ui.router',
   'validation.match',
