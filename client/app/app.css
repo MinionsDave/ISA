@@ -32,3 +32,12 @@
     max-width: 730px;
   }
 }
+
+.md-button.button-block {
+  display: block;
+  width: 100%;
+}
+
+.text-center {
+  text-align: center;
+}

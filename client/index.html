@@ -20,6 +20,7 @@
       <link rel="stylesheet" href="app/app.css">
       <link rel="stylesheet" href="components\sidebar\sidebar.css">
       <link rel="stylesheet" href="components\toolbar\toolbar.css">
+      <link rel="stylesheet" href="app\account\login\login.css">
       <!-- injector:css -->
       <!-- endinjector -->
     <!-- endbuild -->
@@ -31,7 +32,10 @@
 
     <!-- Add your site or application content here -->
     <div layout="column" layout-fill>
-      <toolbar></toolbar>
+      <toolbar ng-hide="$state.current.name === 'login'"></toolbar>
+      <md-content>
+        <div ui-view></div>
+      </md-content>
     </div>
     <sidebar></sidebar>
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->

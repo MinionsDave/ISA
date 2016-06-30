@@ -4,7 +4,7 @@
 angular.module('isaAfApp', [
   'isaAfApp.auth',
   'isaAfApp.admin',
-  // 'isaAfApp.constants',
+  'isaAfApp.constants',
   'ngCookies',
   'ngResource',
   'ngSanitize',
@@ -13,8 +13,12 @@ angular.module('isaAfApp', [
   'ngMaterial'
 ])
   .config(function($urlRouterProvider, $locationProvider) {
-    $urlRouterProvider
-      .otherwise('/');
+      $urlRouterProvider
+        .otherwise('/');
 
-    $locationProvider.html5Mode(true);
+      $locationProvider.html5Mode(true);
+  })
+  .run(function ($rootScope, $state, $stateParams) {
+    $rootScope.$state = $state;
+    $rootScope.$stateParams = $stateParams;
   });
