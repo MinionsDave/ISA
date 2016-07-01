@@ -7,3 +7,8 @@
 .login md-checkbox {
     margin-left: 6px;
 }
+
+.login .img-wrapper {
+    text-align: center;
+    padding-left: 30px;
+}
