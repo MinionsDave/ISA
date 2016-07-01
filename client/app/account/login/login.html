@@ -48,14 +48,15 @@
 </div>-->
 <div layout layout-align="center center" class="login">
   <form name="loginForm" flex="50">
-    <div   layout layout-align="center center" layout-margin>
+    <div layout layout-align="center center" layout-margin>
       <img src="assets/images/logo.png" width="100px" flex="nogrow">
-      <h2 class="md-display-1" flex="nogrow">
+      <!--<h2 class="md-display-1" flex="nogrow">
         Isa.qa Management System
-      </h2>
+      </h2>-->
     </div>
-    <md-input-container class="md-block">
+    <md-input-container md-no-float class="md-block">
       <label>username</label>
+      <md-icon md-svg-src="assets\svg\ic_person_outline_black_24px.svg"></md-icon>
       <input type="text" class="text-center" ng-model="vm.user.username" name="username" required>
       <div ng-messages="loginForm.username.$error">
         <div ng-message="required">
@@ -63,8 +64,9 @@
         </div>
       </div>
     </md-input-container>
-    <md-input-container class="md-block">
+    <md-input-container md-no-float class="md-block">
       <label>password</label>
+      <md-icon md-svg-src="assets\svg\ic_lock_outline_black_24px.svg"></md-icon>
       <input type="password" class="text-center" name="password" ng-model="vm.user.password" required>
       <div ng-messages="loginForm.password.$error">
         <div ng-message="required">
@@ -72,12 +74,19 @@
         </div>
       </div>
     </md-input-container>
+    <md-checkbox class="md-primary" ng-model="data.cb1">
+      remember me
+    </md-checkbox>
+    <md-button class="button-block md-primary md-raised">
+      sign in
+    </md-button>
     <div layout>
-      <md-button flex="50" class="button-block md-primary md-raised" ng-disabled="loginForm.$invalid">
-        sign in
+      <md-button class="md-primary" flex="nogrow">
+        sign up now
       </md-button>
-      <md-button flex="50" class="button-block md-accent md-hue1 md-raised">
-        sign up
+      <span flex></span>
+      <md-button class="md-primary" flex="nogrow">
+        forget password
       </md-button>
     </div>
   </form>
