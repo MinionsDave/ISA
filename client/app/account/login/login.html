@@ -72,8 +72,13 @@
         </div>
       </div>
     </md-input-container>
-    <md-button class="button-block md-primary md-raised" ng-disabled="loginForm.$invalid">
-      login
-    </md-button>
+    <div layout>
+      <md-button flex="50" class="button-block md-primary md-raised" ng-disabled="loginForm.$invalid">
+        sign in
+      </md-button>
+      <md-button flex="50" class="button-block md-accent md-hue1 md-raised">
+        sign up
+      </md-button>
+    </div>
   </form>
 </div>
