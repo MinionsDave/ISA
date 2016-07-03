@@ -23,3 +23,9 @@ angular.module('isaAfApp', [
     $rootScope.$state = $state;
     $rootScope.$stateParams = $stateParams;
   });
+  // .config(function ($mdThemingProvider) {
+  //   $mdThemingProvider
+  //     .theme('default')
+  //     .backgroundPalette('orange');
+  // });
+  
