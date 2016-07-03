@@ -33,6 +33,8 @@
         "client/components/toolbar/toolbar.directive.ts",
         "client/components/util/util.module.ts",
         "client/components/util/util.service.ts",
+        "client/typings/globals/angular-material/index.d.ts",
+        "client/typings/globals/angular-ui-router/index.d.ts",
         "client/typings/globals/angular/index.d.ts",
         "client/typings/globals/jquery/index.d.ts",
         "client/typings/globals/lodash/index.d.ts",
