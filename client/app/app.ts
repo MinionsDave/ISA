@@ -28,4 +28,3 @@ angular.module('isaAfApp', [
   //     .theme('default')
   //     .backgroundPalette('orange');
   // });
-  
