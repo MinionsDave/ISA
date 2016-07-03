@@ -17,6 +17,7 @@
         "client/app/admin/admin.module.ts",
         "client/app/admin/admin.router.ts",
         "client/app/app.ts",
+        "client/app/icon.ts",
         "client/app/main/main.controller.ts",
         "client/app/main/main.ts",
         "client/components/auth/auth.module.ts",

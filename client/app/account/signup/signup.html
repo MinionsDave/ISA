@@ -1,4 +1,23 @@
-<div class="container">
+<div layout layout-align="center center" class="signup">
+  <form name="signupForm" flex="50" flex-xs="80">
+    <md-input-container md-no-float class="md-block">
+      <label>name</label>
+      <md-icon md-svg-src="person"></md-icon>
+      <input type="text" class="text-center" ng-model="vm.user.username" name="username" required>
+    </md-input-container>
+    <md-input-container md-no-float class="md-block">
+      <label>password</label>
+      <md-icon md-svg-src="assets\svg\ic_lock_outline_black_24px.svg"></md-icon>
+      <input type="text" class="text-center" ng-model="vm.user.username" name="username" required>
+    </md-input-container>
+    <md-input-container md-no-float class="md-block">
+      <label>confirm password</label>
+      <md-icon md-svg-src="assets\svg\ic_lock_outline_black_24px.svg"></md-icon>
+      <input type="text" class="text-center" ng-model="vm.user.username" name="username" required>
+    </md-input-container>
+  </form>
+</div>
+<!--<div class="container">
   <div class="row">
     <div class="col-sm-12">
       <h1>Sign up</h1>
@@ -77,4 +96,4 @@
     </div>
   </div>
   <hr>
-</div>
+</div>-->
