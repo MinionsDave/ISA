@@ -1,6 +1,7 @@
+
 <div layout layout-align="center center" class="login">
-  <form name="loginForm" flex="50">
-    <div class="img-wrapper">
+  <form name="loginForm" flex-xs="80" flex="50">
+    <div layout layout-align="center center" layout-margin>
       <img src="assets/images/logo.png" width="100px" flex="nogrow">
       <!--<h2 class="md-display-1" flex="nogrow">
         Isa.qa Management System
@@ -32,8 +33,8 @@
     <md-button class="button-block md-primary md-raised">
       sign in
     </md-button>
-    <div layout>
-      <md-button class="md-primary" flex="nogrow">
+    <div layout layout-xs="column">
+      <md-button class="md-primary" flex="nogrow" ui-sref="account.signup">
         sign up now
       </md-button>
       <span flex></span>

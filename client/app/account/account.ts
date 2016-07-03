@@ -3,10 +3,21 @@
 angular.module('isaAfApp')
   .config(function($stateProvider) {
     $stateProvider
-      .state('login', {
+      .state('account', {
+        url: '/account',
+        template: '<div ui-view></div>',
+        abstract: true
+      })
+      .state('account.login', {
         url: '/login',
         templateUrl: 'app/account/login/login.html',
         controller: 'LoginController',
+        controllerAs: 'vm'
+      })
+      .state('account.signup', {
+        url: '/signup',
+        templateUrl: 'app/account/signup/signup.html',
+        controller: 'SignupController',
         controllerAs: 'vm'
       })
       .state('logout', {
@@ -20,12 +31,6 @@ angular.module('isaAfApp')
           Auth.logout();
           $state.go(referrer);
         }
-      })
-      .state('signup', {
-        url: '/signup',
-        templateUrl: 'app/account/signup/signup.html',
-        controller: 'SignupController',
-        controllerAs: 'vm'
       })
       .state('settings', {
         url: '/settings',
