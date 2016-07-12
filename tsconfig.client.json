@@ -16,6 +16,7 @@
         "client/app/admin/admin.controller.ts",
         "client/app/admin/admin.module.ts",
         "client/app/admin/admin.router.ts",
+        "client/app/app.constant.ts",
         "client/app/app.ts",
         "client/app/icon.ts",
         "client/app/main/main.controller.ts",
