@@ -12,6 +12,7 @@
     padding: 20px 0;
     margin: 0;
     padding-left: 130px;
+    cursor: pointer;
 }
 
 .sidebar ul li:hover {
