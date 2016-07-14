@@ -2,3 +2,18 @@
     display: block;
     width: 100px;
 }
+
+.sidebar ul {
+    padding-left: 0;
+}
+
+.sidebar ul li {
+    color: #678098;
+    padding: 20px 0;
+    margin: 0;
+    padding-left: 130px;
+}
+
+.sidebar ul li:hover {
+    background-color: rgb(242, 246, 249);
+}
