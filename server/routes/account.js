@@ -1,8 +1,12 @@
 var express = require('express');
 var router = express.Router();
 var passport = require('passport');
+var crypto = require('crypto');
 
 var User = require('../models/user.js');
+var mailer = require('../utils/mailer');
+var config = require('../config');
+var authRequired = require('../utils/auth-required');
 
 router.post('/login', passport.authenticate('local'), function (req, res, next) {
     User.findOne({
@@ -29,14 +33,29 @@ router.route('/account')
             if (count > 0) {
                 return res.status(400).end('用户已存在');
             } else {
-                User.register(new User({
-                    username: username
-                }), password, function (err) {
+                User.register(new User(req.body), password, function (err, user) {
                     if (err) {
                         return next(err);
                     }
-                    res.json({
-                        message: '注册成功'
+                    crypto.randomBytes(20, function (err, buf) {
+                        user.activeToken = user._id + buf.toString('hex');
+                        user.activeExpires = Date.now() + 24 * 3600 * 1000;
+                        var link = config.URL + '/account/active/' + user.activeToken;
+                        mailer({
+                            to: req.body.email,
+                            subject: '欢迎注册依萨卡后勤端',
+                            html: '请点击 <a link="' + link + '" target="_blank">此处</a>激活'
+                        });
+
+                        user.save(function (err, user) {
+                            if (err) {
+                                next(err);
+                            }
+
+                            res.json({
+                                message: '已发送邮件至' + user.email + '请在24小时内按照邮件提示激活'
+                            });
+                        })
                     });
                 });
             }
@@ -45,8 +64,8 @@ router.route('/account')
         });
     })
 
+    // .get(authRequired, function (req, res, next) {
     .get(function (req, res, next) {
-        console.info(req.user);
         User.find()
         .then(function (users) {
             res.json(users);
@@ -92,6 +111,29 @@ router.route('/account/:id')
             next(err);
         });
     });
+
+router.get('/account/active/:activeToken', function (req, res, next) {
+    User.findOne({
+        activeToken: req.params.activeToken,
+        activeExpires: {$gt: Date.now()}
+    }, function (err, user) {
+        if (err) {
+            return next(err);
+        }
+
+        if (!user) {
+            return res.status(400).end('您的激活链接无效，请重新注册!');
+        }
+
+        user.active = true;
+        user.save(function (err, user) {
+            if (err) {
+                return next(err);
+            }
+            res.end('激活成功');
+        });
+    });
+});
 
 
 module.exports = router;

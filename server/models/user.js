@@ -2,6 +2,8 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var passportLocalMongoose = require('passport-local-mongoose');
 
+var LeaveSchema = require('./leave').schema;
+
 var UserSchema = new Schema({
 	username: {
 		type: String,
@@ -9,7 +11,23 @@ var UserSchema = new Schema({
 			unique: true
 		}
 	},
-	password: String	
+	password: String,
+	email: {
+		type: String,
+		index: {
+			unique: true
+		}
+	},
+	active: {
+		type: Boolean,
+		default: false
+	},
+	activeToken: String,
+	activeExpires: Date,
+	avatar: String,
+	leaves: [
+		LeaveSchema
+	]
 });
 
 UserSchema.plugin(passportLocalMongoose);

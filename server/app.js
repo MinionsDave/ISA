@@ -3,21 +3,24 @@ var path = require('path');
 var ejs = require('ejs');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
-// var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var passport = require('passport');
 var session = require('express-session');
 
+var config = require('./config');
 var routes = require('./routes/index');
 var users = require('./routes/users');
-var account = require('./routes/account.js');
+var account = require('./routes/account');
+var file = require('./routes/file');
+var leave = require('./routes/leave');
+
 var User = require('./models/user.js');
 
 var app = express();
 
 //  connect db
-mongoose.connect('mongodb://localhost/node-in-action');
+mongoose.connect(config.mongodb);
 
 passport.use(User.createStrategy());
 passport.serializeUser(User.serializeUser());
@@ -46,6 +49,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
 app.use('/users', users);
+app.use('/file', file);
+app.use('/leave', leave);
 app.use(account);
 
 // catch 404 and forward to error handler
@@ -70,12 +75,7 @@ if (app.get('env') === 'development') {
 // production error handler
 // no stacktraces leaked to user
 app.use(function(err, req, res, next) {
-  res.status(err.status || 500);
-  res.render('error', {
-    message: err.message,
-    error: {}
-  });
+  res.status(err.status || 500).json(err);
 });
-
 
 module.exports = app;
