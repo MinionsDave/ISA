@@ -1,7 +1,6 @@
 var express = require('express');
 var router = express.Router();
 
-var User = require('../models/user');
 var Leave = require('../models/leave');
 
 router.route('')
@@ -12,20 +11,15 @@ router.route('')
 			}
 			res.json(leaves);
 		});
-	});
+	})
 
-router.route('/:userId')
 	.post(function (req, res, next) {
-		User.findOne({
-			_id: req.params.userId
-		}, function (err, user) {
+		var leave = new Leave(req.body);
+		leave.save(function (err, leave) {
 			if (err) {
 				return next(err);
 			}
-			var leave = new Leave(req.body);
-			user.leaves.push(leave);
-			user.save();
-			res.end();
+			res.json(leave);
 		});
 	});
 

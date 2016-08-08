@@ -1,19 +1,18 @@
-<div layout>
-	<div flex="25"></div>
-	<div flex="50">
-		<h3>login</h3>
-		<md-input-container class="md-icon-float md-block">
-		    <label>Name</label>
-		    <input ng-model="vm.user.username" type="text">
-		</md-input-container>
-		<md-input-container class="md-block">
-			<input ng-model="vm.user.password" type="text" placeholder="Phone Number">
-		</md-input-container>
-		<md-button class="md-primary" ng-click="vm.login()">
-			login
-		</md-button>
-		<md-button class="md-warn" ng-click="vm.query()">
-			query
-		</md-button>
-	</div>
+<div layout="column" layout-align="center center" id="login">
+	<md-content layout-padding>	
+		<form name="userForm">
+			<md-input-container class="md-block" flex-gt-xl>
+				<div>
+					<label>Username</label>
+					<input name="username">
+				</div>
+			</md-input-container>
+			<md-input-container class="md-block" flex-gt-xl>
+				<div>
+					<label>Password</label>
+					<input type="password" name="password">
+				</div>				
+			</md-input-container>
+		</form>	
+	</md-content>
 </div>
