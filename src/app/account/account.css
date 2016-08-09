@@ -26,10 +26,6 @@
 	cursor: pointer;
 }
 
-#login .button-wrapper {
-	padding-right: 25px;
-}
-
 #login .form-bottom {
 	position: absolute;
 	bottom: 0;
