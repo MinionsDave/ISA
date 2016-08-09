@@ -3,7 +3,11 @@
 
   angular
     .module('nodeInAction')
-    .config(config);
+    .config(config)
+    // .config(function ($mdThemingProvider) {
+    //   $mdThemingProvider.theme('default')
+    //   .primaryPalette('009688');
+    // });
 
   /** @ngInject */
   function config($logProvider, toastrConfig) {

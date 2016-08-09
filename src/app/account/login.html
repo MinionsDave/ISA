@@ -1,18 +1,31 @@
-<div layout="column" layout-align="center center" id="login">
-	<md-content layout-padding>	
-		<form name="userForm">
-			<md-input-container class="md-block" flex-gt-xl>
-				<div>
-					<label>Username</label>
-					<input name="username">
-				</div>
-			</md-input-container>
-			<md-input-container class="md-block" flex-gt-xl>
-				<div>
-					<label>Password</label>
-					<input type="password" name="password">
-				</div>				
-			</md-input-container>
-		</form>	
-	</md-content>
+<div id="login">
+	<form class="md-whiteframe-8dp">
+		<h1 class="md-display-1 text-center primary">
+			ISAQA
+		</h1>
+		<md-input-container class="md-block">
+			<label>Email</label>
+			<input name="description" ng-model="project.description">
+		</md-input-container>
+		<md-input-container class="md-block">
+			<label>Password</label>
+			<input name="description" ng-model="project.description">
+		</md-input-container>
+		<div class="button-wrapper text-right">
+			<a type="submit" class="primary">
+				登录
+			</a>
+		</div>
+	</form>
+	<div class="text-center form-bottom">
+		<a>
+			注册
+		</a>
+		&nbsp;
+		|
+		&nbsp;
+		<a>
+			忘记密码?
+		</a>
+	</div>
 </div>
