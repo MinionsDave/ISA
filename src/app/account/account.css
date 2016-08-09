@@ -22,6 +22,10 @@
 	margin-bottom: 60px;
 }
 
+#login a:hover {
+	cursor: pointer;
+}
+
 #login .button-wrapper {
 	padding-right: 25px;
 }

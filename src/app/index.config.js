@@ -4,10 +4,12 @@
   angular
     .module('nodeInAction')
     .config(config)
-    // .config(function ($mdThemingProvider) {
-    //   $mdThemingProvider.theme('default')
-    //   .primaryPalette('009688');
-    // });
+    .config(function ($mdThemingProvider) {
+      $mdThemingProvider.theme('default')
+      .primaryPalette('teal')
+      .accentPalette('light-blue')
+      .warnPalette('red');
+    });
 
   /** @ngInject */
   function config($logProvider, toastrConfig) {
