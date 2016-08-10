@@ -2,6 +2,6 @@
   'use strict';
 
   angular
-    .module('nodeInAction', ['ui.router', 'ngMaterial', 'toastr']);
+    .module('nodeInAction', ['ui.router', 'ngMaterial', 'ngMessages','toastr']);
 
 })();

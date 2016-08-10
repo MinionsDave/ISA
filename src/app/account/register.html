@@ -1,0 +1,33 @@
+<form class="md-whiteframe-8dp animated bounceInLeft" name="registerForm" novalidate>
+    <h1 class="md-display-1 text-center primary">
+        ISAQA
+    </h1>
+    <md-input-container class="md-block">
+        <label>Email</label>
+        <input type="email" name="email" ng-model="vm.user.email" required>
+        <div ng-messages="registerForm.email.$error">
+            <div ng-message="required">请填写注册邮箱</div>
+            <div ng-message="email">请输入正确的邮箱格式</div>
+        </div>
+    </md-input-container>
+    <md-input-container class="md-block">
+        <label>密码</label>
+        <input ng-minlength="6" type="password" name="password" ng-model="vm.user.password" required>
+        <div ng-messages="registerForm.password.$error">
+            <div ng-message="required">请输入密码</div>
+            <div ng-message="minlength">请至少输入六位密码</div>
+        </div>
+    </md-input-container>
+    <md-input-container class="md-block">
+        <label>重复密码</label>
+        <input type="password" name="password-repeat" ng-model="vm.passwordRepeat" required>
+    </md-input-container>
+    <div class="button-wrapper text-right">
+        <a ui-sref="account.login" class="login">
+            登录
+        </a>
+        <md-button class="md-primary" type="submit">
+            注册
+        </md-button>
+    </div>
+</form>

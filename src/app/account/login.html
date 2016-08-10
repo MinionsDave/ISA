@@ -1,31 +1,29 @@
-<div id="login">
-	<form class="md-whiteframe-8dp" name="loginForm" novalidate>
-		<h1 class="md-display-1 text-center primary">
-			ISAQA
-		</h1>
-		<md-input-container class="md-block">
-			<label>Email</label>
-			<input type="email" name="description" ng-model="project.description" required>
-		</md-input-container>
-		<md-input-container class="md-block">
-			<label>Password</label>
-			<input name="description" ng-model="project.description" required>
-		</md-input-container>
-		<div class="button-wrapper text-right">
-			<md-button class="md-primary" type="submit">
-				登录
-			</md-button>
-		</div>
-	</form>
-	<div class="text-center form-bottom">
-		<a>
-			注册
-		</a>
-		&nbsp;
-		|
-		&nbsp;
-		<a>
-			忘记密码?
-		</a>
+<form class="md-whiteframe-8dp animated bounceInRight" name="loginForm" novalidate>
+	<h1 class="md-display-1 text-center primary">
+        ISAQA
+    </h1>
+	<md-input-container class="md-block">
+		<label>Email</label>
+		<input type="email" name="description" ng-model="project.description" required>
+	</md-input-container>
+	<md-input-container class="md-block">
+		<label>Password</label>
+		<input name="description" ng-model="project.description" required>
+	</md-input-container>
+	<div class="button-wrapper text-right">
+		<md-button class="md-primary" type="submit">
+			登录
+		</md-button>
 	</div>
+</form>
+<div class="text-center form-bottom">
+    <a ui-sref="account.register">
+        注册
+    </a>
+    &nbsp;
+    |
+    &nbsp;
+    <a>
+        忘记密码?
+    </a>
 </div>

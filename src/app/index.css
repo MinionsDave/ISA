@@ -37,8 +37,8 @@
   font-feature-settings: 'liga';
 }
 
-html {
-  font-family:"Consolas","Microsoft Yahei",Arial,monospace;
+button, select, html, textarea, input {
+  font-family:"Consolas", "Microsoft Yahei", Arial, monospace;
 }
 
 [layout=row] {
@@ -61,7 +61,6 @@ section.jumbotron {
   padding: 1px 30px;
   background-color: #5aadbb;
   text-align: center;
-
   color: white;
 }
 

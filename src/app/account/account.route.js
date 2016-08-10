@@ -2,24 +2,18 @@
 angular.module('nodeInAction')
 .config(function ($stateProvider) {
 	$stateProvider
-	.state('login', {
+	.state('account', {
+		url: '/account',
+		abstract: true,
+		templateUrl: 'app/account/account.html'
+	})
+	.state('account.login', {
 		url: '/login',
 		templateUrl: 'app/account/login.html',
-		controllerAs: 'vm',
-		controller: function ($http) {
-			var vm = this;
-			vm.login = function () {
-				$http.post('http://localhost:1994/login', vm.user)
-				.then(function (res) {
-					console.log(res);
-				});
-			};
-			vm.query = function () {
-				$http.get('http://localhost:1994/account')
-				.then(function (res) {
-					console.log(res);
-				})
-			}
-		}
+		controller: 'LoginCtrl as vm'
+	})
+	.state('account.register', {
+		url: '/register',
+		templateUrl: 'app/account/register.html'
 	})
 });
