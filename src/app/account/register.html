@@ -20,7 +20,11 @@
     </md-input-container>
     <md-input-container class="md-block">
         <label>重复密码</label>
-        <input type="password" name="password-repeat" ng-model="vm.passwordRepeat" required>
+        <input type="password" name="password_repeat" ng-model="vm.passwordRepeat" required pw-check>
+        <div ng-messages="registerForm.password_repeat.$error">
+            <div ng-message="required">请再次输入密码</div>
+            <div ng-message="pwCheck">两次输入的密码不一致</div>
+        </div>
     </md-input-container>
     <div class="button-wrapper text-right">
         <a ui-sref="account.login" class="login">
