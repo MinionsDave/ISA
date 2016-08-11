@@ -14,6 +14,7 @@ angular.module('nodeInAction')
 	})
 	.state('account.register', {
 		url: '/register',
-		templateUrl: 'app/account/register.html'
+		templateUrl: 'app/account/register.html',
+		controller: 'RegisterCtrl as vm'
 	})
 });

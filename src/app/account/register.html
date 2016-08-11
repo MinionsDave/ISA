@@ -4,10 +4,11 @@
     </h1>
     <md-input-container class="md-block">
         <label>Email</label>
-        <input type="email" name="email" ng-model="vm.user.email" required>
+        <input type="email" name="email" ng-model="vm.user.username" required check-user>
         <div ng-messages="registerForm.email.$error">
             <div ng-message="required">请填写注册邮箱</div>
             <div ng-message="email">请输入正确的邮箱格式</div>
+            <div ng-message="checkUser">该邮箱已注册</div>
         </div>
     </md-input-container>
     <md-input-container class="md-block">
@@ -30,7 +31,7 @@
         <a ui-sref="account.login" class="login">
             登录
         </a>
-        <md-button class="md-primary" type="submit">
+        <md-button class="md-primary" type="submit" ng-click="vm.register(registerForm)">
             注册
         </md-button>
     </div>

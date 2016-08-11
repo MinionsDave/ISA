@@ -26,41 +26,30 @@ router.route('/account')
             return res.status(400).end('用户名或密码不合法');
         }
 
-        User.count({
-            username: username
-        })
-        .then(function (count) {
-            if (count > 0) {
-                return res.status(400).end('用户已存在');
-            } else {
-                User.register(new User(req.body), password, function (err, user) {
-                    if (err) {
-                        return next(err);
-                    }
-                    crypto.randomBytes(20, function (err, buf) {
-                        user.activeToken = user._id + buf.toString('hex');
-                        user.activeExpires = Date.now() + 24 * 3600 * 1000;
-                        var link = config.URL + '/account/active/' + user.activeToken;
-                        mailer({
-                            to: req.body.email,
-                            subject: '欢迎注册依萨卡后勤端',
-                            html: '请点击 <a link="' + link + '" target="_blank">此处</a>激活'
-                        });
-
-                        user.save(function (err, user) {
-                            if (err) {
-                                next(err);
-                            }
-
-                            res.json({
-                                message: '已发送邮件至' + user.email + '请在24小时内按照邮件提示激活'
-                            });
-                        })
-                    });
-                });
+        User.register(new User(req.body), password, function (err, user) {
+            if (err) {
+                return next(err);
             }
-        }, function (err) {
-            next(err);
+            crypto.randomBytes(20, function (err, buf) {
+                user.activeToken = user._id + buf.toString('hex');
+                user.activeExpires = Date.now() + 24 * 3600 * 1000;
+                var link = config.URL + '/account/active/' + user.activeToken;
+                mailer({
+                    to: req.body.email,
+                    subject: '欢迎注册依萨卡后勤端',
+                    html: '请点击 <a link="' + link + '" target="_blank">此处</a>激活'
+                });
+
+                user.save(function (err, user) {
+                    if (err) {
+                        next(err);
+                    }
+
+                    res.json({
+                        message: '已发送邮件至' + user.email + '请在24小时内按照邮件提示激活'
+                    });
+                })
+            });
         });
     })
 
@@ -135,5 +124,18 @@ router.get('/account/active/:activeToken', function (req, res, next) {
     });
 });
 
+router.get('/account/checkUser/:username', function (req, res, next) {
+    User.count({
+        username: req.params.username
+    }, function (err, count) {
+        if (err) {
+            return next(err);
+        }
+        if (count > 0) {
+            return res.status(400).end('用户已存在');
+        }
+        res.end();
+    });
+});
 
 module.exports = router;

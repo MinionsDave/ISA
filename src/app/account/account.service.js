@@ -1,5 +1,11 @@
 'use strict';
 angular.module('nodeInAction')
-.service('Account', function () {
-    
+.service('Account', function ($http, Config) {
+    this.register = function (user) {
+        return $http.post(Config.URL + 'account', user);
+    };
+
+    this.checkUser = function (email) {
+        return $http.get(Config.URL + 'account/checkUser/' + email);
+    };
 });
