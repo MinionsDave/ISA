@@ -8,4 +8,8 @@ angular.module('nodeInAction')
     this.checkUser = function (email) {
         return $http.get(Config.URL + 'account/checkUser/' + email);
     };
+
+    this.login = function (user) {
+        return $http.post(Config.URL + 'login', user);
+    }
 });

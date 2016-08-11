@@ -68,6 +68,10 @@ section.jumbotron h1 {
   font-size: 3em;
 }
 
+.toast-success {
+  background-color: #009688;
+}
+
 .text-center {
   text-align: center;
 }
