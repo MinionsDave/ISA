@@ -37,7 +37,7 @@ router.route('/account')
                 mailer({
                     to: req.body.username,
                     subject: '欢迎注册依萨卡后勤端',
-                    html: '请点击 <a link="' + link + '" target="_blank">此处</a>激活'
+                    html: '请点击 <a href="' + link + '" target="_blank">此处</a>激活'
                 });
 
                 user.save(function (err, user) {
