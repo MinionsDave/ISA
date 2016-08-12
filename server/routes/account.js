@@ -35,7 +35,7 @@ router.route('/account')
                 user.activeExpires = Date.now() + 24 * 3600 * 1000;
                 var link = config.URL + '/account/active/' + user.activeToken;
                 mailer({
-                    to: req.body.email,
+                    to: req.body.username,
                     subject: '欢迎注册依萨卡后勤端',
                     html: '请点击 <a link="' + link + '" target="_blank">此处</a>激活'
                 });
@@ -46,7 +46,7 @@ router.route('/account')
                     }
 
                     res.json({
-                        message: '已发送邮件至' + user.email + '请在24小时内按照邮件提示激活'
+                        message: '已发送邮件至' + user.username + '请在24小时内按照邮件提示激活'
                     });
                 })
             });
