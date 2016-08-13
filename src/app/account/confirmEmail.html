@@ -1,0 +1,16 @@
+<form class="md-whiteframe-8dp animated bounceInLeft text-center">
+    <h1 class="md-display-1 primary">
+        ISAQA
+    </h1>
+    <h2 class="md-subhead">
+        {{ vm.email }}
+    </h2>    
+    邮件已发送至您的邮箱，请点击邮箱中的链接激活
+    <br>
+    <br>
+    <div class="text-right">
+        <md-button class="md-primary" ng-click="vm.sendAgain()">
+            重新发送
+        </md-button>
+    </div>
+</form>

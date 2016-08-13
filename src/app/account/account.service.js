@@ -11,5 +11,9 @@ angular.module('nodeInAction')
 
     this.login = function (user) {
         return $http.post(Config.URL + 'login', user);
-    }
+    };
+
+    this.sendAgain = function (email) {
+        return $http.get(Config.URL + 'account/sendAgain/' + email);  
+    };
 });

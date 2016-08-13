@@ -1,6 +1,6 @@
 'use strict';
 angular.module('nodeInAction')
-.controller('RegisterCtrl', function (Account, toastr) {
+.controller('RegisterCtrl', function (Account, $state) {
     var vm = this;
     vm.user = {};
     vm.register = function (registerForm) {
@@ -9,7 +9,7 @@ angular.module('nodeInAction')
         if (registerForm.$valid) {
             Account.register(vm.user)
             .then(function (res) {
-                toastr.success('马上激活！', '注册成功！');
+                $state.go('account.confirmEmail', {email: vm.user.username});
             });
         }
     };

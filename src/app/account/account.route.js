@@ -17,4 +17,13 @@ angular.module('nodeInAction')
 		templateUrl: 'app/account/register.html',
 		controller: 'RegisterCtrl as vm'
 	})
+	.state('account.confirmEmail', {
+		url: '/confirmEmail/:email',
+		templateUrl: 'app/account/confirmEmail.html',
+		controller: 'ConfirmEmailCtrl as vm'
+	})
+	.state('account.improvement', {
+		url: '/improvement',
+		templateUrl: 'app/account/improvement.html'
+	})
 });

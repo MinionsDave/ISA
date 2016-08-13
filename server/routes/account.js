@@ -140,4 +140,22 @@ router.get('/account/checkUser/:username', function (req, res, next) {
     });
 });
 
+router.get('/account/sendAgain/:username', function (req, res, next) {
+    var username = req.params.username;
+    User.findOne({
+        username: req.params.username
+    }, function (err, user) {
+        if (err) {
+            return next(err);
+        }
+        var link = config.URL + '/account/active/' + user.activeToken;
+        mailer({
+            to: username,
+            subject: '欢迎注册依萨卡后勤端',
+            html: '请点击 <a href="' + link + '" target="_blank">此处</a>激活'
+        });
+        res.end();
+    });
+});
+
 module.exports = router;
