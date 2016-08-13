@@ -1,6 +1,6 @@
 'use strict';
 angular.module('nodeInAction')
-.controller('LoginCtrl', function (Account) {
+.controller('LoginCtrl', function (Account, $stateParams, toastr) {
     var vm = this;
     vm.user = {};
     vm.login = function (loginForm) {
@@ -11,4 +11,11 @@ angular.module('nodeInAction')
             });
         }
     };
+    
+    if ($stateParams.activeToken) {
+        Account.activeUser($stateParams.activeToken)
+        .then(function () {
+            toastr.success('邮箱激活成功!');
+        });
+    }
 });

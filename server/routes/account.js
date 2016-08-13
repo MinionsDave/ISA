@@ -26,16 +26,16 @@ router.route('/account')
             return res.status(400).end('用户名或密码不合法');
         }
 
-        User.register(new User({
-            username: username
-        }), password, function (err, user) {
+        delete req.body.password;
+
+        User.register(new User(req.body), password, function (err, user) {
             if (err) {
                 return next(err);
             }
             crypto.randomBytes(20, function (err, buf) {
                 user.activeToken = user._id + buf.toString('hex');
                 user.activeExpires = Date.now() + 24 * 3600 * 1000;
-                var link = config.URL + '/account/active/' + user.activeToken;
+                var link = config.URL + '/#/account/login/' + user.activeToken;
                 mailer({
                     to: req.body.username,
                     subject: '欢迎注册依萨卡后勤端',

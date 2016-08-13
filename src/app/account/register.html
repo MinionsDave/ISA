@@ -12,6 +12,13 @@
         </div>
     </md-input-container>
     <md-input-container class="md-block">
+        <label>姓名</label>
+        <input type="text" name="name" ng-model="vm.user.name" required>
+        <div ng-messages="registerForm.name.$error">
+            <div ng-message="required">请输入姓名</div>
+        </div>
+    </md-input-container>
+    <md-input-container class="md-block">
         <label>密码</label>
         <input ng-minlength="6" type="password" name="password" ng-model="vm.user.password" required>
         <div ng-messages="registerForm.password.$error">

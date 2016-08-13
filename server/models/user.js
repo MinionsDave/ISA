@@ -16,7 +16,18 @@ var UserSchema = new Schema({
 	},
 	activeToken: String,
 	activeExpires: Date,
-	avatar: String
+	avatar: String,
+	name: String,
+	job: String,
+	birthday: Number,
+	hometown: String,
+	address: String,
+	phonenumber: Number,
+	qq: String,
+	wechat: String,
+	interests: [
+		String
+	]
 });
 
 UserSchema.plugin(passportLocalMongoose);

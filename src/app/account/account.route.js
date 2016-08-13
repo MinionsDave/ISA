@@ -8,7 +8,7 @@ angular.module('nodeInAction')
 		templateUrl: 'app/account/account.html'
 	})
 	.state('account.login', {
-		url: '/login',
+		url: '/login/:activeToken',
 		templateUrl: 'app/account/login.html',
 		controller: 'LoginCtrl as vm'
 	})
