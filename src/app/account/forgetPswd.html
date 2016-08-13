@@ -1,0 +1,23 @@
+<form class="md-whiteframe-8dp animated bounceInRight" name="resetForm" novalidate  ng-submit="vm.reset(resetForm)">
+    <h1 class="md-display-1 text-center primary">
+        ISAQA
+    </h1>
+    <md-input-container class="md-block">
+        <label>Email</label>
+        <input type="email" name="email" ng-model="vm.email" check-user-exists required>
+        <div ng-messages="resetForm.email.$error">
+            <div ng-message="required">请填写注册邮箱</div>
+            <div ng-message="email">请输入正确的邮箱格式</div>
+            <div ng-message="checkUserExists">该邮箱未注册</div>
+        </div>
+    </md-input-container>
+    <div class="text-center small">
+        请输入您注册时使用的邮箱，我们会发送给您一封用于重置密码的邮件。如果连注册时的邮箱都忘记了，请联系刘蕾。
+    </div>
+    <br>
+    <div class="button-wrapper text-right">
+        <md-button class="md-primary" type="submit">
+            重置
+        </md-button>
+    </div>
+</form>

@@ -22,6 +22,11 @@ angular.module('nodeInAction')
 		templateUrl: 'app/account/confirmEmail.html',
 		controller: 'ConfirmEmailCtrl as vm'
 	})
+	.state('account.forgetPswd', {
+		url: '/forgetPswd',
+		templateUrl: 'app/account/forgetPswd.html',
+		controller: 'ForgetPswdCtrl as vm'
+	})
 	.state('account.improvement', {
 		url: '/improvement',
 		templateUrl: 'app/account/improvement.html'

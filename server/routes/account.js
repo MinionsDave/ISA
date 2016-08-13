@@ -44,7 +44,7 @@ router.route('/account')
 
                 user.save(function (err, user) {
                     if (err) {
-                        next(err);
+                        return next(err);
                     }
 
                     res.json({
@@ -103,6 +103,7 @@ router.route('/account/:id')
         });
     });
 
+// 激活用户
 router.get('/account/active/:activeToken', function (req, res, next) {
     User.findOne({
         activeToken: req.params.activeToken,
@@ -117,6 +118,11 @@ router.get('/account/active/:activeToken', function (req, res, next) {
         }
 
         user.active = true;
+
+        // 删除已经没用的token和过期时间字段
+        delete user.activeToken;
+        delete user.activeExpires;
+
         user.save(function (err, user) {
             if (err) {
                 return next(err);
@@ -126,6 +132,7 @@ router.get('/account/active/:activeToken', function (req, res, next) {
     });
 });
 
+// 查看用户是否存在
 router.get('/account/checkUser/:username', function (req, res, next) {
     User.count({
         username: req.params.username
@@ -140,6 +147,7 @@ router.get('/account/checkUser/:username', function (req, res, next) {
     });
 });
 
+// 再次发送邮件
 router.get('/account/sendAgain/:username', function (req, res, next) {
     var username = req.params.username;
     User.findOne({
@@ -148,7 +156,7 @@ router.get('/account/sendAgain/:username', function (req, res, next) {
         if (err) {
             return next(err);
         }
-        var link = config.URL + '/account/active/' + user.activeToken;
+        var link = config.URL + '/#/account/login/' + user.activeToken;
         mailer({
             to: username,
             subject: '欢迎注册依萨卡后勤端',
@@ -157,5 +165,35 @@ router.get('/account/sendAgain/:username', function (req, res, next) {
         res.end();
     });
 });
+
+// 忘记密码
+router.get('/account/forget/:username', function (req, res, next) {
+    var username = req.params.username;
+    User.findOne({
+        username: username
+    }, function (err, user) {
+        if (err) {
+            return next(err);
+        }
+        crypto.randomBytes(20, function (err, buf) {
+            user.resetPswdToken =  user._id + buf.toString('hex');
+            user.resetPswdExpires = Date.now() + 3600 * 1000;
+            var link = config.URL + '/#/account/resetPswd/' + user.resetPswdToken;
+            mailer({
+                to: user.username,
+                subject: '依萨卡后勤端用户重置密码',
+                html: '请点击 <a href="' + link + '" target="_blank">此处</a>重置密码'
+            });
+
+            user.save(function (err, user) {
+                if (err) {
+                    return next(err);
+                }
+
+                res.end();
+            });
+        });
+    })
+})
 
 module.exports = router;

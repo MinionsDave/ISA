@@ -84,6 +84,10 @@ section.jumbotron h1 {
   color: #009688;
 }
 
+.small {
+  font-size: 12px;
+}
+
 .techs {
   display: flex;
   flex-flow: row wrap;
