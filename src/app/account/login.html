@@ -1,4 +1,4 @@
-<form class="md-whiteframe-8dp animated bounceInRight" name="loginForm" novalidate>
+<form class="md-whiteframe-8dp animated bounceInRight" name="loginForm" novalidate  ng-submit="vm.login(loginForm)">
 	<h1 class="md-display-1 text-center primary">
         ISAQA
     </h1>
@@ -11,7 +11,7 @@
 		<input name="password" ng-model="vm.user.password" required>
 	</md-input-container>
 	<div class="button-wrapper text-right">
-		<md-button class="md-primary" type="submit" ng-click="vm.login(loginForm)">
+		<md-button class="md-primary" type="submit">
 			登录
 		</md-button>
 	</div>

@@ -26,7 +26,9 @@ router.route('/account')
             return res.status(400).end('用户名或密码不合法');
         }
 
-        User.register(new User(req.body), password, function (err, user) {
+        User.register(new User({
+            username: username
+        }), password, function (err, user) {
             if (err) {
                 return next(err);
             }
