@@ -120,8 +120,8 @@ router.get('/account/active/:activeToken', function (req, res, next) {
         user.active = true;
 
         // 删除已经没用的token和过期时间字段
-        delete user.activeToken;
-        delete user.activeExpires;
+        user.activeToken = null;
+        user.activeExpires = null;
 
         user.save(function (err, user) {
             if (err) {
@@ -176,9 +176,9 @@ router.get('/account/forget/:username', function (req, res, next) {
             return next(err);
         }
         crypto.randomBytes(20, function (err, buf) {
-            user.resetPswdToken =  user._id + buf.toString('hex');
-            user.resetPswdExpires = Date.now() + 3600 * 1000;
-            var link = config.URL + '/#/account/resetPswd/' + user.resetPswdToken;
+            user.activeToken =  user._id + buf.toString('hex');
+            user.activeExpires = Date.now() + 3600 * 1000;
+            var link = config.URL + '/#/account/resetPswd/' + user.activeToken + '/' + username;
             mailer({
                 to: user.username,
                 subject: '依萨卡后勤端用户重置密码',
@@ -193,7 +193,35 @@ router.get('/account/forget/:username', function (req, res, next) {
                 res.end();
             });
         });
-    })
-})
+    });
+});
+
+// 重置密码
+router.post('/account/resetPswd', function (req, res, next) {
+    User.findOne({
+        username: req.body.username,
+        activeExpires: {$gt: Date.now()}
+    }, function (err, user) {
+        if (err) {
+            return next(err);
+        }
+        if (!user || req.body.activeToken !== user.activeToken) {
+            res.status(400).end('激活信息有误');
+        }
+        user.setPassword(req.body.password, function (err, user) {
+            if (err) {
+                return next(err);
+            }
+            user.activeToken = null;
+            user.activeExpires = null;
+            user.save(function (err, user) {
+                if (err) {
+                    return next(err);
+                }
+                res.end();
+            });
+        });
+    });
+});
 
 module.exports = router;
