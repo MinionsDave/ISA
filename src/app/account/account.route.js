@@ -31,4 +31,9 @@ angular.module('nodeInAction')
 		url: '/improvement',
 		templateUrl: 'app/account/improvement.html'
 	})
+	.state('account.resetPswd', {
+		url: '/resetPswd/:activeToken/:username',
+		templateUrl: 'app/account/resetPswd.html',
+		controller: 'ResetPswdCtrl as vm'
+	})
 });

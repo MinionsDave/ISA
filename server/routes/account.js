@@ -206,7 +206,7 @@ router.post('/account/resetPswd', function (req, res, next) {
             return next(err);
         }
         if (!user || req.body.activeToken !== user.activeToken) {
-            res.status(400).end('激活信息有误');
+            return res.status(400).end('激活信息有误');
         }
         user.setPassword(req.body.password, function (err, user) {
             if (err) {
