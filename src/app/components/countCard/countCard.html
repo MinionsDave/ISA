@@ -1,14 +1,14 @@
 <md-card layout="column" class="card-count" layout-fill>
     <div flex class="text-center" layout layout-align="center center">
-        <md-icon class="md-primary">
-            assignment_ind
+        <md-icon ng-class="vm.colorStyle">
+            {{ vm.icon }}
         </md-icon>
     </div>
     <div>
         <span>
-            请假总结
+            {{ vm.title }}
         </span>
     </div>
     <div flex>
-        22<span>&nbsp;天</span>
+        {{ vm.count }}<span>&nbsp;{{ vm.unit }}</span>
 </md-card>

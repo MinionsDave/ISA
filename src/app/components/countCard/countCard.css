@@ -1,0 +1,44 @@
+.card-count {
+  position: relative;
+  height: 200px;
+}
+
+.card-count div:first-child {
+  background-color: #fff;
+}
+
+.card-count div:nth-child(2) {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  text-align: center;
+  border-bottom: 1px solid #DFDFDF;
+  height: 0;
+}
+
+.card-count div:nth-child(2) span {
+  display: inline-block;
+  padding: 4px 10px;
+  height: 18px;
+  border: 1px solid #DFDFDF;
+  border-radius: 1em;
+  font-size: 11px;
+  background-color: #fff;
+  position: relative;
+  top: -14px;
+}
+
+.card-count md-icon {
+  font-size: 40px;
+}
+
+.card-count div:last-child {
+  background-color: #F9F9F9;
+  font-size: 40px;
+  text-align: center;
+  line-height: 100px;
+}
+
+.card-count div:last-child span {
+  font-size: 18px;
+}
