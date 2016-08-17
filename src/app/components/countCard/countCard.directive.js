@@ -11,11 +11,10 @@ angular.module('nodeInAction')
             colorStyle: '@'
         },
         controllerAs: 'vm',
-        bindToController: true,
         templateUrl: 'app/components/countCard/countCard.html',
         controller: function () {
             var vm = this;        
-            console.log(vm);
-        }
+        },
+        bindToController: true
     };
 });
