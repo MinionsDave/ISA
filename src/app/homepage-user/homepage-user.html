@@ -1,34 +1,50 @@
 <div layout layout-margin>
     <count-card
-    flex="25"
-    icon="assignment_ind"
-    title="请假总计"
-    count="22"
-    unit="天"
-    color-style="md-primary">
+        flex="25"
+        icon="assignment_ind"
+        title="请假总计"
+        count="22"
+        unit="天"
+        color-style="md-primary">
     </count-card>
     <count-card
-    flex="25"
-    icon="assignment_late"
-    title="加班总计"
-    count="32"
-    unit="天"
-    color-style="md-warn">
+        flex="25"
+        icon="assignment_late"
+        title="加班总计"
+        count="32"
+        unit="天"
+        color-style="md-warn">
     </count-card>
     <count-card
-    flex="25"
-    icon="shopping_cart"
-    title="报销总计"
-    count="32"
-    unit="k"
-    color-style="md-accent">
+        flex="25"
+        icon="shopping_cart"
+        title="报销总计"
+        count="32"
+        unit="k"
+        color-style="md-accent">
     </count-card>
     <count-card
-    flex="25"
-    icon="attach_money"
-    title="发票总计"
-    count="32"
-    unit="k"
-    color-style="md-primary md-hue-2">
+        flex="25"
+        icon="attach_money"
+        title="发票总计"
+        count="32"
+        unit="k"
+        color-style="md-primary md-hue-2">
     </count-card>
 </div>
+<calendar-md flex layout layout-fill
+    calendar-direction="vertical"
+    on-prev-month="prevMonth"
+    on-next-month="nextMonth"
+    on-day-click="dayClick"
+    title-format="'yyyy年 MM月'"
+    week-starts-on="1"
+    ng-model='selectedDate'
+    tooltips="true"
+    day-format="dayFormat"
+    day-label-format="'EEE'"
+    day-label-tooltip-format="'EEEE'"
+    day-tooltip-format="'fullDate'"
+    day-content="setDayContent"
+    disable-future-selection="false">
+</calendar-md>
