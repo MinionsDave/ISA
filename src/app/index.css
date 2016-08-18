@@ -106,3 +106,19 @@ body {
   background-color: #efefef;
   background-size: cover;
 }
+
+/*设置选中时的文本以及背景颜色*/
+::selection {
+    background: #009688; 
+    color: #fff;
+}
+
+::-moz-selection {
+    background: #009688; 
+    color: #fff;
+}
+
+::-webkit-selection {
+    background: #009688; 
+    color: #fff;
+}
