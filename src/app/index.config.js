@@ -12,7 +12,10 @@
     });
 
   /** @ngInject */
-  function config($logProvider, toastrConfig) {
+  function config($logProvider, toastrConfig, localStorageServiceProvider) {
+    localStorageServiceProvider
+      .setPrefix('nodeInAction');
+
     // Enable log
     $logProvider.debugEnabled(true);
 

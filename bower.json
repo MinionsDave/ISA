@@ -10,7 +10,8 @@
     "moment": "~2.10.6",
     "animate.css": "~3.4.0",
     "angular": "~1.5.3",
-    "material-calendar": "^0.2.14"
+    "material-calendar": "^0.2.14",
+    "angular-local-storage": "^0.4.0"
   },
   "devDependencies": {
     "angular-mocks": "~1.5.3"

@@ -1,14 +1,8 @@
-(function() {
-  'use strict';
+'use strict';
+angular
+.module('nodeInAction')
+.run(function ($rootScope, $state, $stateParams) {
+    $rootScope.$state = $state;
+    $rootScope.$stateParams = $stateParams;
+});
 
-  angular
-    .module('nodeInAction')
-    .run(runBlock);
-
-  /** @ngInject */
-  function runBlock($log) {
-
-    $log.debug('runBlock end');
-  }
-
-})();

@@ -7,7 +7,8 @@
         'ngMaterial',
         'ngMessages',
         'toastr',
-        'materialCalendar'
+        'materialCalendar',
+        'LocalStorageModule'
     ]);
 
 })();

@@ -4,6 +4,7 @@ angular.module('nodeInAction')
     $stateProvider
     .state('homepage-user', {
         url: '/homepage-user',
-        templateUrl: 'app/homepage-user/homepage-user.html'
+        templateUrl: 'app/homepage-user/homepage-user.html',
+        controller: 'UserHomePageCtrl as vm'
     });
 });
