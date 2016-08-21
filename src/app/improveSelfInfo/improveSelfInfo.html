@@ -3,52 +3,52 @@
         <h2 class="md-headline">完善个人资料</h2>
         <img src="assets/images/browsersync.png">
     </div>
-    <div flex>
+    <form flex name="updateForm" ng-submit="vm.update(updateForm)">
         <md-input-container class="md-block">
             <label>姓名</label>
-            <input type="email" name="email" ng-model="vm.user.username" required>
+            <input type="text" name="text" ng-model="vm.user.name"  disabled>
         </md-input-container>
         <md-input-container class="md-block">
             <label>岗位</label>
-            <input type="email" name="email" ng-model="vm.user.username" required>
+            <input type="text" name="text" ng-model="vm.user.job" >
         </md-input-container>
         <md-input-container class="md-block">
             <label>出生年月</label>
-            <input type="email" name="email" ng-model="vm.user.username" required>
+            <input type="text" name="text" ng-model="vm.user.birthday" >
         </md-input-container>
         <md-input-container class="md-block">
             <label>家乡</label>
-            <input type="email" name="email" ng-model="vm.user.username" required>
+            <input type="text" name="text" ng-model="vm.user.hometown" >
         </md-input-container>
         <md-input-container class="md-block">
             <label>当前居住地</label>
-            <input type="email" name="email" ng-model="vm.user.username" required>
+            <input type="text" name="text" ng-model="vm.user.address" >
         </md-input-container>
         <md-input-container class="md-block">
             <label>手机号码</label>
-            <input type="email" name="email" ng-model="vm.user.username" required>
+            <input type="text" name="text" ng-model="vm.user.phonenumber" >
         </md-input-container>
         <md-input-container class="md-block">
             <label>qq</label>
-            <input type="email" name="email" ng-model="vm.user.username" required>
+            <input type="text" name="text" ng-model="vm.user.qq" >
         </md-input-container>
         <md-input-container class="md-block">
             <label>微信</label>
-            <input type="email" name="email" ng-model="vm.user.username" required>
+            <input type="text" name="text" ng-model="vm.user.wechat" >
         </md-input-container>
         <md-input-container class="md-block">
             <label>兴趣爱好</label>
-            <input type="email" name="email" ng-model="vm.user.username" required>
+            <input type="text" name="text" ng-model="vm.user.interests" >
         </md-input-container>
         <div layout layout-align="end">
             <md-button class="md-accent md-raised">
                 取消
             </md-button>
-            <md-button class="md-primary md-raised">
+            <md-button class="md-primary md-raised" type="submit">
                 确认
             </md-button>
         </div>
-    </div>
+    </form>
 </md-card>
     <!-- <md-card-title>
         <md-card-title-text>
@@ -61,39 +61,39 @@
     <md-card-content>
         <md-input-container class="md-block">
             <label>姓名</label>
-            <input type="email" name="email" ng-model="vm.user.username" required>
+            <input type="text" name="text" ng-model="vm.user.username" >
         </md-input-container>
         <md-input-container class="md-block">
             <label>岗位</label>
-            <input type="email" name="email" ng-model="vm.user.username" required>
+            <input type="text" name="text" ng-model="vm.user.username" >
         </md-input-container>
         <md-input-container class="md-block">
             <label>出生年月</label>
-            <input type="email" name="email" ng-model="vm.user.username" required>
+            <input type="text" name="text" ng-model="vm.user.username" >
         </md-input-container>
         <md-input-container class="md-block">
             <label>家乡</label>
-            <input type="email" name="email" ng-model="vm.user.username" required>
+            <input type="text" name="text" ng-model="vm.user.username" >
         </md-input-container>
         <md-input-container class="md-block">
             <label>当前居住地</label>
-            <input type="email" name="email" ng-model="vm.user.username" required>
+            <input type="text" name="text" ng-model="vm.user.username" >
         </md-input-container>
         <md-input-container class="md-block">
             <label>手机号码</label>
-            <input type="email" name="email" ng-model="vm.user.username" required>
+            <input type="text" name="text" ng-model="vm.user.username" >
         </md-input-container>
         <md-input-container class="md-block">
             <label>qq</label>
-            <input type="email" name="email" ng-model="vm.user.username" required>
+            <input type="text" name="text" ng-model="vm.user.username" >
         </md-input-container>
         <md-input-container class="md-block">
             <label>微信</label>
-            <input type="email" name="email" ng-model="vm.user.username" required>
+            <input type="text" name="text" ng-model="vm.user.username" >
         </md-input-container>
         <md-input-container class="md-block">
             <label>兴趣爱好</label>
-            <input type="email" name="email" ng-model="vm.user.username" required>
+            <input type="text" name="text" ng-model="vm.user.username" >
         </md-input-container>
     </md-card-content>
     <md-card-actions layout="row" layout-align="end center">

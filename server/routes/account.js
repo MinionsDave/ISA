@@ -55,8 +55,8 @@ router.route('/account')
         });
     })
 
-    // .get(authRequired, function (req, res, next) {
-    .get(function (req, res, next) {
+    .get(authRequired, function (req, res, next) {
+    // .get(function (req, res, next) {
         User.find()
         .then(function (users) {
             res.json(users);
@@ -221,6 +221,16 @@ router.post('/account/resetPswd', function (req, res, next) {
                 res.end();
             });
         });
+    });
+});
+
+// 更新用户信息
+router.post('/account/update', authRequired, function (req, res, next) {
+    User.findByIdAndUpdate(req.body._id, req.body, function (err, user) {
+        if (err) {
+            return next(err);
+        }
+        res.json(user);
     });
 });
 

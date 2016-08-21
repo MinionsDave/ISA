@@ -1,6 +1,6 @@
 'use strict';
 angular.module('nodeInAction')
-.service('Account', function ($http, Config) {
+.service('Account', function ($http, Config, localStorageService) {
     this.register = function (user) {
         return $http.post(Config.URL + 'account', user);
     };
@@ -31,5 +31,13 @@ angular.module('nodeInAction')
 
     this.sendResetEmail = function (email) {
         return $http.get(Config.URL + 'account/forget/' + email);
+    };
+
+    this.getUser = function () {
+        return localStorageService.get('user');
+    };
+
+    this.updateUser = function (user) {
+        return $http.post(Config.URL + 'account/update', user);
     };
 });
