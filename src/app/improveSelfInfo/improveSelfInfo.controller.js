@@ -1,6 +1,6 @@
 'use strict';
 angular.module('nodeInAction')
-.controller('ImproveSelfInfoCtrl', function (Account) {
+.controller('ImproveSelfInfoCtrl', function (Account, localStorageService) {
     var vm = this;
     vm.user = Account.getUser();
     vm.update = function (form) {
@@ -10,6 +10,7 @@ angular.module('nodeInAction')
         Account.updateUser(vm.user)
         .then(function (res) {
             console.log(res);
+            localStorageService.set('user', vm.user);
         });
     };
 });

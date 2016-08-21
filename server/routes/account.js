@@ -226,7 +226,7 @@ router.post('/account/resetPswd', function (req, res, next) {
 
 // 更新用户信息
 router.post('/account/update', authRequired, function (req, res, next) {
-    User.findByIdAndUpdate(req.body._id, req.body, function (err, user) {
+    User.findByIdAndUpdate(req.user._id, req.body, function (err, user) {
         if (err) {
             return next(err);
         }
