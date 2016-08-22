@@ -56,6 +56,11 @@ md-toolbar.md-default-theme {
   background-color: black;
 }
 
+/*设置在md-input-container中的md-chips高度为40px*/
+md-input-container md-chips md-chips-wrap {
+  height: 40px;
+}
+
 section.jumbotron {
   margin-bottom: 30px;
   padding: 1px 30px;

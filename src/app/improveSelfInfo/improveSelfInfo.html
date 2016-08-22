@@ -38,7 +38,16 @@
         </md-input-container>
         <md-input-container class="md-block">
             <label>兴趣爱好</label>
-            <input type="text" name="text" ng-model="vm.user.interests" >
+            <md-chips
+                ng-model="vm.user.interests"
+                md-removable="true"
+                placeholder="按回车键添加"
+                delete-button-label="Remove Tag"
+                delete-hint="Press delete to remove tag"
+                secondary-placeholder="按回车键添加"
+                md-enable-chip-edit="true"
+                style="height: 40px;">
+            </md-chips>
         </md-input-container>
         <div layout layout-align="end">
             <md-button class="md-accent md-raised">
