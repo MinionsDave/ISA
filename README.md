@@ -37,8 +37,6 @@ Paths configuration are stored in `gulpfile.js`. Change `options.(src|dist|tmp|e
 * `gulp protractor` to launch your e2e tests with Protractor
 * `gulp protractor:dist` to launch your e2e tests with Protractor on the dist files
 
-More information on the gulp tasks in the [User Guide](user-guide.md).
-
 ## Directory structure
 
 [Best Practice Recommendations for Angular App Structure](https://docs.google.com/document/d/1XXMvReO8-Awi1EZXAXS4PzDzdNvV6pGcuaF4Q9821Es/pub)
