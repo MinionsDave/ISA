@@ -1,4 +1,13 @@
-# generator-gulp-angular ![Logo](generators/app/templates/src/assets/images/generator-gulp-angular-logo.png)
+# ISA management webapp
+### you need
+1. nodejs
+2. mongodb
+
+### after clone the project you need run
+1. npm install
+2. bower install
+
+<!-- # generator-gulp-angular ![Logo](generators/app/templates/src/assets/images/generator-gulp-angular-logo.png)
 
 [![Unmaintained](https://img.shields.io/badge/generator-unmaintained-red.svg?style=flat-square)](https://github.com/Swiip/generator-gulp-angular/pull/1155)
 [![Outdated](https://img.shields.io/badge/generator-outdated-red.svg?style=flat-square)](https://github.com/Swiip/generator-gulp-angular/pull/1155)
@@ -114,3 +123,4 @@ yo gulp-angular
 ## License
 
 MIT
+ -->
