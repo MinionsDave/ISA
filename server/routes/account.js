@@ -55,8 +55,8 @@ router.route('/account')
         });
     })
 
-    .get(authRequired, function (req, res, next) {
-    // .get(function (req, res, next) {
+    // .get(authRequired, function (req, res, next) {
+    .get(function (req, res, next) {
         User.find()
         .then(function (users) {
             res.json(users);

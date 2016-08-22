@@ -32,6 +32,8 @@
     $httpProvider.interceptors.push(function ($q, $injector) {
       return {
         responseError: function (rejection) {
+
+          // 开发环境中使用
           if (rejection.status === 401) {
             var Account = $injector.get('Account');
             Account.login({
@@ -39,7 +41,8 @@
               password: '123456'
             });
           }
-           return $q.reject(rejection);
+          
+          return $q.reject(rejection);
         }
       };
     });

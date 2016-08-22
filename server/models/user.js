@@ -19,7 +19,7 @@ var UserSchema = new Schema({
 	avatar: String,
 	name: String,
 	job: String,
-	birthday: Number,
+	birthday: Date,
 	hometown: String,
 	address: String,
 	phonenumber: Number,

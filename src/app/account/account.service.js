@@ -21,13 +21,6 @@ angular.module('nodeInAction')
         return $http.get(Config.URL + 'account/active/' + activeToken);
     };
 
-    this.resetPswd = function (username, pswd, token) {
-        return $http.post(Config.URL + 'account/resetPswd' ,{
-            username: username,
-            password: pswd,
-            activeToken: token
-        });
-    };
 
     this.sendResetEmail = function (email) {
         return $http.get(Config.URL + 'account/forget/' + email);
@@ -39,5 +32,13 @@ angular.module('nodeInAction')
 
     this.updateUser = function (user) {
         return $http.post(Config.URL + 'account/update', user);
+    };
+    
+    this.resetPswd = function (username, pswd, token) {
+        return $http.post(Config.URL + 'account/resetPswd' ,{
+            username: username,
+            password: pswd,
+            activeToken: token
+        });
     };
 });
