@@ -7,8 +7,9 @@ angular.module('nodeInAction')
         replace: true,
         controllerAs: 'vm',
         templateUrl: 'app/components/headbar/headbar.html',
-        controller: function () {
-            var vm = this;        
+        controller: function (Account) {
+            var vm = this;
+            vm.user = Account.getUser();
         }
     };
 });

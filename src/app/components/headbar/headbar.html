@@ -2,9 +2,9 @@
     <div class="md-toolbar-tools">
         <span flex></span>
         <md-button layout>
-            <img src="assets/images/browsersync.png" class="avatar">
+            <img ng-src="{{ vm.user.avatar | headPortrait }}" class="avatar">
             <h4 class="md-subhead">
-                吴登广
+                {{ vm.user.name }}
             </h4>
         </md-button>
     </div>

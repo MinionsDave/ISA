@@ -1,5 +1,6 @@
 'use strict';
 angular.module('nodeInAction')
 .constant('Config', {
-    URL: '/api/'
+    URL: '/api/',
+    SERVER_URL: 'http://localhost:1994/'
 });
