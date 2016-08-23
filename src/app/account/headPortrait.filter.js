@@ -1,7 +1,7 @@
 'use strict';
 angular.module('nodeInAction')
-.filter('headPortrait', function (Config, $filter) {
+.filter('headPortrait', function ($filter, Config) {
     return function (val) {
-        return $filter('host')(val) || 'assets/images/missing_face.png';
+        return $filter('host')(val) || Config.HEAD_PORTRAIT_DEFAULT;
     };
 });
