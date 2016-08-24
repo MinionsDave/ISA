@@ -1,7 +1,12 @@
-<md-card layout layout-padding layout-margin>
+<md-card layout layout-padding layout-margin
+    flow-init
+    flow-files-submitted="$flow.upload()">
     <div layout="column" layout="start center">
-        <h2 class="md-headline">完善个人资料</h2>
-        <img src="assets/images/browsersync.png">
+        <h2 class="md-headline text-center">完善个人资料</h2>
+        <img 
+            flow-btn 
+            ng-src="{{ vm.user.avatar | headPortrait }}"
+            flow-img="$flow.files[$flow.files.length - 1]">
     </div>
     <form flex name="updateForm" ng-submit="vm.update(updateForm)">
         <md-input-container class="md-block">
@@ -58,53 +63,3 @@
         </div>
     </form>
 </md-card>
-    <!-- <md-card-title>
-        <md-card-title-text>
-            <span class="md-headline">完善个人资料</span>
-        </md-card-title-text>
-        <md-card-title-media>
-            <img class="md-media-lg card-media" src="assets/images/browsersync.png">
-        </md-card-title-media>
-    </md-card-title>
-    <md-card-content>
-        <md-input-container class="md-block">
-            <label>姓名</label>
-            <input type="text" name="text" ng-model="vm.user.username" >
-        </md-input-container>
-        <md-input-container class="md-block">
-            <label>岗位</label>
-            <input type="text" name="text" ng-model="vm.user.username" >
-        </md-input-container>
-        <md-input-container class="md-block">
-            <label>出生年月</label>
-            <input type="text" name="text" ng-model="vm.user.username" >
-        </md-input-container>
-        <md-input-container class="md-block">
-            <label>家乡</label>
-            <input type="text" name="text" ng-model="vm.user.username" >
-        </md-input-container>
-        <md-input-container class="md-block">
-            <label>当前居住地</label>
-            <input type="text" name="text" ng-model="vm.user.username" >
-        </md-input-container>
-        <md-input-container class="md-block">
-            <label>手机号码</label>
-            <input type="text" name="text" ng-model="vm.user.username" >
-        </md-input-container>
-        <md-input-container class="md-block">
-            <label>qq</label>
-            <input type="text" name="text" ng-model="vm.user.username" >
-        </md-input-container>
-        <md-input-container class="md-block">
-            <label>微信</label>
-            <input type="text" name="text" ng-model="vm.user.username" >
-        </md-input-container>
-        <md-input-container class="md-block">
-            <label>兴趣爱好</label>
-            <input type="text" name="text" ng-model="vm.user.username" >
-        </md-input-container>
-    </md-card-content>
-    <md-card-actions layout="row" layout-align="end center">
-        <md-button>Action 1</md-button>
-        <md-button>Action 2</md-button>
-    </md-card-actions> -->

@@ -6,6 +6,7 @@
     .config(config)
     .config(httpConfig)
     .config(datePickerConfig)
+    .config(flowConfig)
     .config(function ($mdThemingProvider) {
       $mdThemingProvider.theme('default')
       .primaryPalette('teal')
@@ -76,6 +77,13 @@
     $mdDateLocaleProvider.firstDayOfWeek = 1;
     $mdDateLocaleProvider.formatDate = function(date) {
       return moment(date).format('YYYY-MM-DD');
+    };
+  }
+
+  function flowConfig (flowFactoryProvider, Config) {
+    flowFactoryProvider.defaults = {
+      target: Config.URL + 'file/upload',
+      testChunks: false
     };
   }
 

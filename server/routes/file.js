@@ -4,7 +4,7 @@ var formidable = require('formidable');
 
 router.post('/upload', function (req, res, next) {
 	var form = new formidable.IncomingForm();
-	form.uploadDir = '../public/uploads';
+	form.uploadDir = 'public/uploads';
 	form.encoding = 'utf-8';
 	form.maxFieldsSize = 20 * 1024 * 1024;
 
