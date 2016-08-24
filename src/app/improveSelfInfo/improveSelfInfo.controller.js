@@ -15,4 +15,7 @@ angular.module('nodeInAction')
             localStorageService.set('user', vm.user);
         });
     };
+    vm.dosth = function ($file, $message, $flow) {
+        console.log($message);  
+    };
 });

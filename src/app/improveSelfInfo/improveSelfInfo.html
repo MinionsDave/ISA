@@ -1,6 +1,7 @@
 <md-card layout layout-padding layout-margin
     flow-init
-    flow-files-submitted="$flow.upload()">
+    flow-files-submitted="$flow.upload()"
+    flow-file-success="vm.dosth($file, $message, $flow)">
     <div layout="column" layout="start center">
         <h2 class="md-headline text-center">完善个人资料</h2>
         <img 

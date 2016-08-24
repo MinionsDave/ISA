@@ -14,8 +14,10 @@ router.post('/upload', function (req, res, next) {
 		if (err) {
 			return next(err);
 		}
-		res.end();
-	})
+
+		// 返回文件路径
+		res.end(files.file.path);
+	});
 });
 
 module.exports = router;
