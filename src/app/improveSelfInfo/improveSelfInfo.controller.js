@@ -6,16 +6,26 @@ angular.module('nodeInAction')
     if (vm.user.birthday) {
         vm.user.birthday = new Date(vm.user.birthday);
     }
-    vm.update = function (form) {
+    vm.ok = function (form) {
         if (!form.$valid) {
             return;
         }
+        if (vm.flow.files.length > 0) {
+            vm.flow.files.splice(0, vm.flow.files.length - 1);
+            vm.flow.upload();
+        } else {
+            update();
+        }
+    };
+    vm.uploadSuccessCallback = function ($file, $message, $flow) {
+        vm.user.avatar = $message;
+        update();
+    };
+    function update () {
         Account.updateUser(vm.user)
         .then(function (res) {
             localStorageService.set('user', vm.user);
+            alert('保存成功');
         });
-    };
-    vm.dosth = function ($file, $message, $flow) {
-        console.log($message);  
-    };
+    }
 });
