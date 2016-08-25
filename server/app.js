@@ -3,6 +3,7 @@ var path = require('path');
 var ejs = require('ejs');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
+var errorhandler = require('errorhandler');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var passport = require('passport');
@@ -65,11 +66,12 @@ app.use(function(req, res, next) {
 // development error handler
 // will print stacktrace
 if (app.get('env') === 'development') {
-  app.use(function(err, req, res, next) {
-    res.status(err.status || 500).json({
-      message: err.message
-    });
-  });
+  app.use(errorhandler());
+  // app.use(function(err, req, res, next) {
+  //   res.status(err.status || 500).json({
+  //     message: err.message
+  //   });
+  // });
 }
 
 // production error handler
