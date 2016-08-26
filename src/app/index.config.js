@@ -63,7 +63,7 @@
       '九月',
       '十月',
       '十一月',
-      '十二月',
+      '十二月'
     ];
     $mdDateLocaleProvider.days = $mdDateLocaleProvider.shortDays = [
       '周日',

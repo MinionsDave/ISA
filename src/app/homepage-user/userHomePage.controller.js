@@ -1,7 +1,7 @@
 'use strict';
 angular.module('nodeInAction')
 .controller('UserHomePageCtrl', function ($mdDialog, $state) {
-    var vm = this;
+    // var vm = this;
     $mdDialog.show(
         $mdDialog.alert()
             .parent(angular.element(document.body))

@@ -17,15 +17,14 @@ angular.module('nodeInAction')
             update();
         }
     };
-    vm.uploadSuccessCallback = function ($file, $message, $flow) {
+    vm.uploadSuccessCallback = function ($file, $message) {
         vm.user.avatar = $message;
         update();
     };
     function update () {
         Account.updateUser(vm.user)
-        .then(function (res) {
+        .then(function () {
             localStorageService.set('user', vm.user);
-            alert('保存成功');
         });
     }
 });

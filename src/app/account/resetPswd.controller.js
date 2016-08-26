@@ -7,7 +7,7 @@ angular.module('nodeInAction')
 
         if (resetForm.$valid) {
             Account.resetPswd(vm.username, vm.password, $stateParams.activeToken)
-            .then(function (res) {
+            .then(function () {
                 toastr.success('<b><a href="/#/account/login/">立即登录</a></b>', '密码重置成功！');
             }, function () {
                 toastr.error('您的重置密码信息有误');

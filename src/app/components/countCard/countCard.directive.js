@@ -13,7 +13,7 @@ angular.module('nodeInAction')
         controllerAs: 'vm',
         templateUrl: 'app/components/countCard/countCard.html',
         controller: function () {
-            var vm = this;        
+            // var vm = this;
         },
         bindToController: true
     };
