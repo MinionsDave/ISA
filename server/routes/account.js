@@ -226,6 +226,10 @@ router.post('/account/resetPswd', function (req, res, next) {
 
 // 更新用户信息
 router.post('/account/update', authRequired, function (req, res, next) {
+    if (req.body.avatar && req.body.avatar.indexOf('public') === 0) {
+        req.body.avatar = req.body.avatar.substr(6);
+    }
+    req.body.avatar.replace('/public', '');
     User.findByIdAndUpdate(req.user._id, req.body, function (err, user) {
         if (err) {
             return next(err);
