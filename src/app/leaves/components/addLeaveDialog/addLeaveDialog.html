@@ -1,0 +1,76 @@
+<md-dialog>
+    <form>
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2>
+                    请假申请
+                </h2>
+                <span flex></span>
+                <md-button class="md-icon-button">
+                    <md-icon>
+                        close
+                    </md-icon>
+                </md-button>
+            </div>
+        </md-toolbar>
+        <md-dialog-content 
+            class="md-padding"
+            layout="column"
+            layout-align="center center">
+            <div layout>
+                <md-input-container class="md-block">
+                    <label>
+                        开始日期
+                    </label>
+                    <md-datepicker ng-model="leave.startDate"></md-datepicker>
+                </md-input-container>
+                <md-input-container class="md-block">
+                    <label>
+                        时间段
+                    </label>
+                    <md-select ng-model="leave.startSection">
+                        <md-option>
+                            上午
+                        </md-option>
+                        <md-option>
+                            下午
+                        </md-option>
+                    </md-select>
+                </md-input-container>
+            </div>
+            <div layout>
+                <md-input-container class="md-block">
+                    <label>
+                        结束日期
+                    </label>
+                    <md-datepicker ng-model="leave.startDate"></md-datepicker>
+                </md-input-container>
+                <md-input-container class="md-block">
+                    <label>
+                        时间段
+                    </label>
+                    <md-select ng-model="leave.startSection">
+                        <md-option>
+                            上午
+                        </md-option>
+                        <md-option>
+                            下午
+                        </md-option>
+                    </md-select>
+                </md-input-container>
+            </div>
+            <md-input-container class="md-block">
+                <label>
+                    原因
+                </label>
+                <input type="text">
+            </md-input-container>
+            <div layout>
+                <span flex></span>
+                <md-button type="submit" class="md-primary md-raised">
+                    确定
+                </md-button>
+            </div>
+        </md-dialog-content>
+    </form>
+</md-dialog>
