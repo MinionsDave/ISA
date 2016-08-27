@@ -5,6 +5,7 @@
 
 .card-count div:first-child {
   background-color: #fff;
+  height: 104px;
 }
 
 .card-count div:nth-child(2) {

@@ -1,10 +1,12 @@
 <md-card layout layout-padding layout-margin
+    class="improveSelfInfo"
     flow-init
     flow-name="vm.flow"
     flow-file-success="vm.uploadSuccessCallback($file, $message, $flow)">
     <div layout="column" layout="start center">
         <h2 class="md-headline text-center">完善个人资料</h2>
         <img 
+            class="avatar" 
             flow-btn 
             ng-src="{{ vm.user.avatar | headPortrait }}"
             flow-img="$flow.files[$flow.files.length - 1]">
