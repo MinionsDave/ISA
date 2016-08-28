@@ -1,12 +1,12 @@
 <md-dialog>
-    <form>
+    <form novalidate ng-submit="vm.addLeave()">
         <md-toolbar>
             <div class="md-toolbar-tools">
                 <h2>
                     请假申请
                 </h2>
                 <span flex></span>
-                <md-button class="md-icon-button">
+                <md-button class="md-icon-button" ng-click="vm.cancel()">
                     <md-icon>
                         close
                     </md-icon>
@@ -22,7 +22,7 @@
                     <label>
                         开始日期
                     </label>
-                    <md-datepicker ng-model="leave.startDate"></md-datepicker>
+                    <md-datepicker ng-model="vm.leave.startDate"></md-datepicker>
                 </md-input-container>
                 <md-input-container class="md-block">
                     <label>
@@ -43,7 +43,7 @@
                     <label>
                         结束日期
                     </label>
-                    <md-datepicker ng-model="leave.startDate"></md-datepicker>
+                    <md-datepicker ng-model="vm.leave.endDate"></md-datepicker>
                 </md-input-container>
                 <md-input-container class="md-block">
                     <label>
@@ -63,7 +63,7 @@
                 <label>
                     原因
                 </label>
-                <input type="text">
+                <input type="text" ng-model="vm.leave.reason">
             </md-input-container>
             <div layout>
                 <span flex></span>
