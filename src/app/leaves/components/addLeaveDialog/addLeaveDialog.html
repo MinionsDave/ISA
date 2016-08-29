@@ -26,13 +26,16 @@
                 </md-input-container>
                 <md-input-container class="md-block">
                     <label>
-                        时间段
+                        时间
                     </label>
-                    <md-select ng-model="leave.startSection">
-                        <md-option>
+                    <md-select ng-model="vm.leave.startSection">
+                        <md-option value="上午">
                             上午
                         </md-option>
-                        <md-option>
+                        <md-option value="中午">
+                            中午
+                        </md-option>
+                        <md-option value="下午">
                             下午
                         </md-option>
                     </md-select>
@@ -47,13 +50,16 @@
                 </md-input-container>
                 <md-input-container class="md-block">
                     <label>
-                        时间段
+                        时间
                     </label>
-                    <md-select ng-model="leave.startSection">
-                        <md-option>
+                    <md-select ng-model="vm.leave.endSection">
+                        <md-option value="上午">
                             上午
                         </md-option>
-                        <md-option>
+                        <md-option value="中午">
+                            中午
+                        </md-option>
+                        <md-option value="下午">
                             下午
                         </md-option>
                     </md-select>

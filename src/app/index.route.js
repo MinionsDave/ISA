@@ -15,7 +15,7 @@
         controllerAs: 'main'
       });
 
-    $urlRouterProvider.otherwise('/');
+    $urlRouterProvider.otherwise('/homepage-user');
   }
 
 })();
