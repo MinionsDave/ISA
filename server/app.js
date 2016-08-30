@@ -16,7 +16,14 @@ var account = require('./routes/account');
 var file = require('./routes/file');
 var leave = require('./routes/leave');
 
-var User = require('./models/user.js');
+var User = require('./models/user');
+var Calendar = require('./models/calendar');
+
+// for (let i = 1; i < 180; i++) {
+//   Calendar.create({
+//     date: 1472486400000 + 24 * 3600 * 1000 * i
+//   });
+// }
 
 var app = express();
 
