@@ -1,23 +1,23 @@
-var express = require('express');
-var path = require('path');
-var ejs = require('ejs');
-var favicon = require('serve-favicon');
-var logger = require('morgan');
-var errorhandler = require('errorhandler');
-var bodyParser = require('body-parser');
-var mongoose = require('mongoose');
-var passport = require('passport');
-var session = require('express-session');
+const express = require('express');
+const path = require('path');
+const ejs = require('ejs');
+const favicon = require('serve-favicon');
+const logger = require('morgan');
+const errorhandler = require('errorhandler');
+const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
+const passport = require('passport');
+const session = require('express-session');
 
-var config = require('./config');
-var routes = require('./routes/index');
-var users = require('./routes/users');
-var account = require('./routes/account');
-var file = require('./routes/file');
-var leave = require('./routes/leave');
+const config = require('./config');
+const routes = require('./routes/index');
+const users = require('./routes/users');
+const account = require('./routes/account');
+const file = require('./routes/file');
+const leave = require('./routes/leave');
 
-var User = require('./models/user');
-var Calendar = require('./models/calendar');
+const User = require('./models/user');
+const Calendar = require('./models/calendar');
 
 // for (let i = 1; i < 180; i++) {
 //   Calendar.create({
@@ -25,7 +25,7 @@ var Calendar = require('./models/calendar');
 //   });
 // }
 
-var app = express();
+const app = express();
 
 //  connect db
 mongoose.connect(config.mongodb);

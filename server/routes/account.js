@@ -8,9 +8,9 @@ var mailer = require('../utils/mailer');
 var config = require('../config');
 var authRequired = require('../utils/auth-required');
 
-router.post('/login', passport.authenticate('local'), function (req, res, next) {
+router.post('/login', passport.authenticate('local'),  (req, res, next) => {
     User.findOne({
-        username: req.body.username
+        username: req.body.username 
     })
     .then(function (user) {
         res.json(user);
