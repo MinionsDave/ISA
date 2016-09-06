@@ -8,6 +8,7 @@ const mailer = require('../utils/mailer');
 const config = require('../config');
 const authRequired = require('../utils/auth-required');
 const join = require('bluebird').join;
+
 router.post('/login', passport.authenticate('local'),  ({ body }, res, next) => {
     User.findOne({
         username: body.username 
@@ -28,19 +29,20 @@ router.route('/account')
 
         delete body.password;
 
-        join(User.registerAsync(new User(body), password), crypto.randomBytesAsync(20))
+        User.registerAsync(new User(body), password)
+        .then(user => join(user, crypto.randomBytesAsync(20)))
         .then(([user, buf]) => {
-            user.activeToken = user._id + buf.toString('hex');
+            user.activeToken = user._id + buf.toString("hex");
             user.activeExpires = Date.now() + 24 * 3600 * 1000;
-            var link = config.URL + '/#/account/login/' + user.activeToken;
+            let link = config.URL + "/#/account/login/" + user.activeToken;
             mailer({
                 to: body.username,
-                subject: '欢迎注册依萨卡后勤端',
-                html: '请点击 <a href="' + link + '" target="_blank">此处</a>激活'
+                subject: "欢迎注册依萨卡后勤端",
+                html: "请点击 <a href=\"" + link + "\" target=\"_blank\">此处</a>激活"
             });
             return user.save();
         })
-        .then(user => res.json({message: `已发送邮件至${ user.username }请在24小时内按照邮件提示激活`}))
+        .then(user => res.json({ message: `已发送邮件至${user.username}请在24小时内按照邮件提示激活` }))
         .catch(err => next(err));
     })
 
