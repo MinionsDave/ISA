@@ -10,7 +10,7 @@ exports.config = {
 
   // Capabilities to be passed to the webdriver instance.
   capabilities: {
-    'browserName': 'chrome'
+    'browserName': 'chrome' 
   },
 
   baseUrl: 'http://localhost:3000',

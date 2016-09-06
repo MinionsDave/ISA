@@ -2,7 +2,7 @@
   "generator-gulp-angular": {
     "version": "1.1.1",
     "props": {
-      "angularVersion": "~1.5.3",
+      "angularVersion": "~1.5.3", 
       "angularModules": [],
       "jQuery": {
         "key": "jqLite"

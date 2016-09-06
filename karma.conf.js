@@ -4,7 +4,7 @@ var path = require('path');
 var conf = require('./gulp/conf');
 
 var _ = require('lodash');
-var wiredep = require('wiredep');
+var wiredep = require('wiredep'); 
 
 var pathSrcHtml = [
   path.join(conf.paths.src, '/**/*.html')
