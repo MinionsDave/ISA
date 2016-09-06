@@ -1,4 +1,6 @@
 const express = require('express');
+const Promise = require('bluebird');
+const crypto = require('crypto');
 const path = require('path');
 const ejs = require('ejs');
 const favicon = require('serve-favicon');
@@ -24,6 +26,9 @@ const Calendar = require('./models/calendar');
 //     date: 1472486400000 + 24 * 3600 * 1000 * i
 //   });
 // }
+
+mongoose.Promise = Promise;
+Promise.promisifyAll(crypto);
 
 const app = express();
 

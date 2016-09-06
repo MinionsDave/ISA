@@ -7,7 +7,7 @@ const User = require('../models/user.js');
 const mailer = require('../utils/mailer');
 const config = require('../config');
 const authRequired = require('../utils/auth-required');
-
+const join = require('bluebird').join;
 router.post('/login', passport.authenticate('local'),  ({ body }, res, next) => {
     User.findOne({
         username: body.username 
@@ -18,41 +18,30 @@ router.post('/login', passport.authenticate('local'),  ({ body }, res, next) => 
 });
 
 router.route('/account')
-    .post(function (req, res, next) {
-        var username = req.body.username || '',
-            password = req.body.password || '';
+    .post(({ body }, res, next) => {
+        let username = body.username || '',
+            password = body.password || '';
 
         if (username.length === 0 || password.length === 0) {
             return res.status(400).end('用户名或密码不合法');
         }
 
-        delete req.body.password;
+        delete body.password;
 
-        User.register(new User(req.body), password, function (err, user) {
-            if (err) {
-                return next(err);
-            }
-            crypto.randomBytes(20, function (err, buf) {
-                user.activeToken = user._id + buf.toString('hex');
-                user.activeExpires = Date.now() + 24 * 3600 * 1000;
-                var link = config.URL + '/#/account/login/' + user.activeToken;
-                mailer({
-                    to: req.body.username,
-                    subject: '欢迎注册依萨卡后勤端',
-                    html: '请点击 <a href="' + link + '" target="_blank">此处</a>激活'
-                });
-
-                user.save(function (err, user) {
-                    if (err) {
-                        return next(err);
-                    }
-
-                    res.json({
-                        message: '已发送邮件至' + user.username + '请在24小时内按照邮件提示激活'
-                    });
-                })
+        join(User.registerAsync(new User(body), password), crypto.randomBytesAsync(20))
+        .then(([user, buf]) => {
+            user.activeToken = user._id + buf.toString('hex');
+            user.activeExpires = Date.now() + 24 * 3600 * 1000;
+            var link = config.URL + '/#/account/login/' + user.activeToken;
+            mailer({
+                to: body.username,
+                subject: '欢迎注册依萨卡后勤端',
+                html: '请点击 <a href="' + link + '" target="_blank">此处</a>激活'
             });
-        });
+            return user.save();
+        })
+        .then(user => res.json({message: `已发送邮件至${ user.username }请在24小时内按照邮件提示激活`}))
+        .catch(err => next(err));
     })
 
     // .get(authRequired, function (req, res, next) {
