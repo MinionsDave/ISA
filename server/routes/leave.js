@@ -1,11 +1,10 @@
-var express = require('express');
-var router = express.Router();
-
-var Leave = require('../models/leave');
+const express = require('express');
+const router = express.Router();
+const Leave = require('../models/leave');
 
 router.route('')
-	.get(function (req, res, next) {
-		Leave.find(function (err, leaves) {
+	.get((req, res, next) => {
+		Leave.find((err, leaves) => {
 			if (err) {
 				return next(err);
 			}
@@ -13,9 +12,9 @@ router.route('')
 		});
 	})
 
-	.post(function (req, res, next) {
-		var leave = new Leave(req.body);
-		leave.save(function (err, leave) {
+	.post(({ body }, res, next) => {
+		let leave = new Leave(body);
+		leave.save((err, leave) => {
 			if (err) {
 				return next(err);
 			}

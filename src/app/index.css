@@ -65,6 +65,7 @@ md-input-container md-chips md-chips-wrap {
 .md-button.md-default-theme.md-accent.md-raised, .md-button.md-accent.md-raised, .md-button.md-default-theme.md-accent.md-fab, .md-button.md-accent.md-fab {
   color: #fff;
 }
+
 section.jumbotron {
   margin-bottom: 30px;
   padding: 1px 30px;

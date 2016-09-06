@@ -1,16 +1,16 @@
-var express = require('express');
-var router = express.Router();
-var passport = require('passport');
-var crypto = require('crypto');
+const express = require('express');
+const router = express.Router();
+const passport = require('passport');
+const crypto = require('crypto');
 
-var User = require('../models/user.js');
-var mailer = require('../utils/mailer');
-var config = require('../config');
-var authRequired = require('../utils/auth-required');
+const User = require('../models/user.js');
+const mailer = require('../utils/mailer');
+const config = require('../config');
+const authRequired = require('../utils/auth-required');
 
-router.post('/login', passport.authenticate('local'),  (req, res, next) => {
+router.post('/login', passport.authenticate('local'),  ({ body }, res, next) => {
     User.findOne({
-        username: req.body.username 
+        username: body.username 
     })
     .then(function (user) {
         res.json(user);
