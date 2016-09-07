@@ -9,13 +9,11 @@ const config = require('../config');
 const authRequired = require('../utils/auth-required');
 const join = require('bluebird').join;
 
-router.post('/login', passport.authenticate('local'),  ({ body }, res, next) => {
+router.post('/login', passport.authenticate('local'),  ({ body: { username }}, res, next) => {
     User.findOne({
-        username: body.username 
+        username: username 
     })
-    .then(function (user) {
-        res.json(user);
-    });
+    .then(user => res.json(user));
 });
 
 router.route('/account')
