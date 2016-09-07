@@ -20,7 +20,7 @@ router.post('/login', passport.authenticate('local'),  ({ body }, res, next) => 
 
 router.route('/account')
     .post(({ body }, res, next) => {
-        let username = body.username || '',
+        const username = body.username || '',
             password = body.password || '';
 
         if (username.length === 0 || password.length === 0) {
@@ -34,40 +34,32 @@ router.route('/account')
         .then(([user, buf]) => {
             user.activeToken = user._id + buf.toString("hex");
             user.activeExpires = Date.now() + 24 * 3600 * 1000;
-            let link = config.URL + "/#/account/login/" + user.activeToken;
+            const link = config.URL + "/#/account/login/" + user.activeToken;
             mailer({
                 to: body.username,
-                subject: "欢迎注册依萨卡后勤端",
-                html: "请点击 <a href=\"" + link + "\" target=\"_blank\">此处</a>激活"
+                subject: '欢迎注册依萨卡后勤端',
+                html: `请点击 <a href="${ link }" target="_blank">此处</a>激活`
             });
             return user.save();
         })
-        .then(user => res.json({ message: `已发送邮件至${user.username}请在24小时内按照邮件提示激活` }))
-        .catch(err => next(err));
+        .then(user => res.json({ message: `已发送邮件至${ user.username }请在24小时内按照邮件提示激活` }))
+        .catch(next);
     })
 
     // .get(authRequired, function (req, res, next) {
     .get(function (req, res, next) {
         User.find()
-        .then(function (users) {
-            res.json(users);
-        }, function (err) {
-            if (err) {
-                next(err);
-            }
-        });
+        .then(users => res.json(users))
+        .catch(err => next(err));
     });
 
 router.route('/account/:id')
-    .get(function (req, res, next) {
+    .get(function ({ params: { id: userId }}, res, next) {
         User.findOne({
-            _id: req.params.id
+            _id: userId
         })
-        .then(function (user) {
-            res.json(user);
-        }, function (err) {
-            next(err);
-        });
+        .then(user => res.json(user))
+        .catch(next);
     })
 
     .put(function (req, res, next) {

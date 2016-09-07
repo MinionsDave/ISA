@@ -30,6 +30,16 @@ const Calendar = require('./models/calendar');
 mongoose.Promise = Promise;
 Promise.promisifyAll(crypto);
 
+/*const fs = Promise.promisifyAll(require('fs'));
+
+fs.readFileAsync("packagse.json").then(JSON.parse).then(json => {
+    console.log(json)
+}).catch(SyntaxError, function (e) {
+    console.error("file contains invalid json");
+}).error(function (e) {
+    console.error("unable to read file, because: ", e.message);
+});*/
+
 const app = express();
 
 //  connect db
