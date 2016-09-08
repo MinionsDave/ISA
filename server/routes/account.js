@@ -60,15 +60,12 @@ router.route('/account/:id')
         .catch(next);
     })
 
-    .put(function (req, res, next) {
+    .put(function ({ params: { id: userId }, body }, res, next) {
         User.update({
-            _id: req.params.id
-        }, req.body)
-        .then(function (resp) {
-            res.json({
-                message: '更新成功'
-            });
-        });
+            _id: userId
+        }, body)
+        .then(() => res.json({message: '更新成功'}))
+        .catch(next);
     })
 
     .delete(function (req, res, next) {
@@ -206,13 +203,19 @@ router.post('/account/resetPswd', function (req, res, next) {
 });
 
 // 更新用户信息
-router.post('/account/update', authRequired, function (req, res, next) {
+/*router.post('/account/update', function (req, res, next) {
     User.findByIdAndUpdate(req.user._id, req.body, function (err, user) {
         if (err) {
             return next(err);
         }
         res.json(user);
     });
+});*/
+
+router.post('/account/update', ({ user: { _id: userId }, body }, res, next) => {
+    User.findByIdAndUpdate(userId, body)
+    .then(user => res.json(user))
+    .catch(next);
 });
 
 module.exports = router;
