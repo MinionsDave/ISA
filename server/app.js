@@ -17,6 +17,7 @@ const users = require('./routes/users');
 const account = require('./routes/account');
 const file = require('./routes/file');
 const leave = require('./routes/leave');
+const calendar = require('./routes/calendar');
 
 const User = require('./models/user');
 const Calendar = require('./models/calendar');
@@ -75,6 +76,7 @@ app.use('/api/users', users);
 app.use('/api/file', file);
 app.use('/api/leave', leave);
 app.use('/api', account);
+app.use('/api/calendar', calendar);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

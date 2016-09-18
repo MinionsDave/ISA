@@ -3,7 +3,7 @@ const router = express.Router();
 const passport = require('passport');
 const crypto = require('crypto');
 
-const User = require('../models/user.js');
+const User = require('../models/user');
 const mailer = require('../utils/mailer');
 const config = require('../config');
 const authRequired = require('../utils/auth-required');
@@ -11,9 +11,14 @@ const join = require('bluebird').join;
 
 router.post('/login', passport.authenticate('local'),  ({ body: { username }}, res, next) => {
     User.findOne({
-        username: username 
+        username: username
     })
-    .then(user => res.json(user));
+    .then(user => {
+        if (user.active) {
+            return res.json(user);
+        }
+        res.status(403).end('用户未激活');
+    });
 });
 
 router.route('/account')
@@ -203,7 +208,7 @@ router.post('/account/resetPswd', function (req, res, next) {
 });
 
 // 更新用户信息
-router.post('/account/update', ({ user: { _id: userId }, body }, res, next) => {
+router.post('/account/update', authRequired, ({ user: { _id: userId }, body }, res, next) => {
     User.findByIdAndUpdate(userId, body)
     .then(user => res.json(user))
     .catch(next);
