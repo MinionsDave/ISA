@@ -203,15 +203,6 @@ router.post('/account/resetPswd', function (req, res, next) {
 });
 
 // 更新用户信息
-/*router.post('/account/update', function (req, res, next) {
-    User.findByIdAndUpdate(req.user._id, req.body, function (err, user) {
-        if (err) {
-            return next(err);
-        }
-        res.json(user);
-    });
-});*/
-
 router.post('/account/update', ({ user: { _id: userId }, body }, res, next) => {
     User.findByIdAndUpdate(userId, body)
     .then(user => res.json(user))
