@@ -17,6 +17,7 @@
     "formidable": "^1.0.17",
     "jade": "~1.11.0",
     "lodash": "^4.14.1",
+    "moment": "^2.15.0",
     "mongoose": "^4.5.7",
     "morgan": "~1.7.0",
     "nodemailer": "^2.5.0",
