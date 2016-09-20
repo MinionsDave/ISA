@@ -7,7 +7,9 @@ router.route('/:datetime')
     .get(({ params: { datetime }}, res, next) => {
         let firstDayOfMonth = moment(parseInt(datetime)).startOf('month').startOf('week').valueOf();
         Calendar.find({
-            date: {$gte: firstDayOfMonth}
+            date: {
+                $gte: firstDayOfMonth
+            }
         })
         .limit(35)
         .sort({

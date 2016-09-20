@@ -1,61 +1,112 @@
-<div>
-    <md-button add-leave-dialog>
-        请假申请
-    </md-button>
-    <md-button>
-        加班登记
-    </md-button>
-    <md-button>
-        我要报销
-    </md-button>
+<div class="homepage-user">
+    <div layout>
+        <div flex="75" class="calendar">
+            <div class="header" layout layout-align="center center">
+                <div flex="nogrow" class="text-center">
+                    <md-button>
+                        <
+                    </md-button>
+                </div>
+                <div flex class="text-center">
+                    2016-9-20
+                </div>
+                <div flex="nogrow" class="text-center">
+                    <md-button>
+                        >
+                    </md-button>
+                </div>
+            </div>
+            <div class="title" layout>
+                <div flex>
+                    星期天
+                </div>
+                <div flex>
+                    星期一
+                </div>
+                <div flex>
+                    星期二
+                </div>
+                <div flex>
+                    星期三
+                </div>
+                <div flex>
+                    星期四
+                </div>
+                <div flex>
+                    星期五
+                </div>
+                <div flex>
+                    星期六
+                </div>
+            </div>
+            <div class="body" layout layout-wrap>
+                <div flex>
+                    28
+                </div>
+                <div flex>
+                    28
+                </div>
+                <div flex>
+                    28
+                </div>
+                <div flex>
+                    28
+                </div>
+                <div flex>
+                    28
+                </div>
+                <div flex>
+                    28
+                </div>
+                <div flex>
+                    28
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+        <md-button add-leave-dialog>
+            请假申请
+        </md-button>
+        <md-button>
+            加班登记
+        </md-button>
+        <md-button>
+            我要报销
+        </md-button>
+    </div>
+    <div layout layout-margin>
+        <count-card
+            flex="25"
+            icon="assignment_ind"
+            title="请假总计"
+            count="22"
+            unit="天"
+            color-style="md-primary">
+        </count-card>
+        <count-card
+            flex="25"
+            icon="assignment_late"
+            title="加班总计"
+            count="32"
+            unit="天"
+            color-style="md-warn">
+        </count-card>
+        <count-card
+            flex="25"
+            icon="shopping_cart"
+            title="报销总计"
+            count="32"
+            unit="k"
+            color-style="md-accent">
+        </count-card>
+        <count-card
+            flex="25"
+            icon="attach_money"
+            title="发票总计"
+            count="32"
+            unit="k"
+            color-style="md-primary md-hue-2">
+        </count-card>
+    </div>
 </div>
-<div layout layout-margin>
-    <count-card
-        flex="25"
-        icon="assignment_ind"
-        title="请假总计"
-        count="22"
-        unit="天"
-        color-style="md-primary">
-    </count-card>
-    <count-card
-        flex="25"
-        icon="assignment_late"
-        title="加班总计"
-        count="32"
-        unit="天"
-        color-style="md-warn">
-    </count-card>
-    <count-card
-        flex="25"
-        icon="shopping_cart"
-        title="报销总计"
-        count="32"
-        unit="k"
-        color-style="md-accent">
-    </count-card>
-    <count-card
-        flex="25"
-        icon="attach_money"
-        title="发票总计"
-        count="32"
-        unit="k"
-        color-style="md-primary md-hue-2">
-    </count-card>
-</div>
-<!-- <calendar-md flex layout layout-fill
-    calendar-direction="vertical"
-    on-prev-month="prevMonth"
-    on-next-month="nextMonth"
-    on-day-click="dayClick"
-    title-format="'yyyy年 MM月'"
-    week-starts-on="1"
-    ng-model='selectedDate'
-    tooltips="true"
-    day-format="dayFormat"
-    day-label-format="'EEE'"
-    day-label-tooltip-format="'EEEE'"
-    day-tooltip-format="'fullDate'"
-    day-content="setDayContent"
-    disable-future-selection="false">
-</calendar-md> -->

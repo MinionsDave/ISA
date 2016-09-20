@@ -1,0 +1,19 @@
+.homepage-user .calendar .header {
+    height: 65px;
+    background-color: #00695C;
+    color: #fff;
+}
+
+.homepage-user .calendar .title {
+    background-color: rgba(199, 197, 197, 0.87);
+}
+
+.homepage-user .calendar .title div {
+    padding: 8px;
+}
+
+.homepage-user .calendar .body div {
+    padding: 8px;
+    border: 1px solid #E1E1E1;
+    height: 120px;
+}
