@@ -8,10 +8,10 @@
                     </md-button>
                 </div>
                 <div flex class="text-center">
-                    2016-9-20
+                    {{ vm.titleDate | date: 'yyyy年MM月'}}
                 </div>
                 <div flex="nogrow" class="text-center">
-                    <md-button>
+                    <md-button ng-click="vm.getNextMonth()">
                         >
                     </md-button>
                 </div>
@@ -40,131 +40,8 @@
                 </div>
             </div>
             <div class="body" layout layout-wrap>
-                <div flex="15">
-                    28
-                </div>
-                <div flex="15">
-                    28
-                </div>
-                <div flex="15">
-                    28
-                </div>
-                <div flex="15">
-                    28
-                </div>
-                <div flex="15">
-                    28
-                </div>
-                <div flex="15">
-                    28
-                </div>
-                <div flex="15">
-                    28
-                </div>
-                <div flex="15">
-                    28
-                </div>
-                <div flex="15">
-                    28
-                </div>
-                <div flex="15">
-                    28
-                </div>
-                <div flex="15">
-                    28
-                </div>
-                <div flex="15">
-                    28
-                </div>
-                <div flex="15">
-                    28
-                </div>
-                <div flex="15">
-                    28
-                </div>
-                <div flex="15">
-                    28
-                </div>
-                <div flex="15">
-                    28
-                </div>
-                <div flex="15">
-                    28
-                </div>
-                <div flex="15">
-                    28
-                </div>
-                <div flex="15">
-                    28
-                </div>
-                <div flex="15">
-                    28
-                </div>
-                <div flex="15">
-                    28
-                </div>
-                <div flex="15">
-                    28
-                </div>
-                <div flex="15">
-                    28
-                </div>
-                <div flex="15">
-                    28
-                </div>
-                <div flex="15">
-                    28
-                </div>
-                <div flex="15">
-                    28
-                </div>
-                <div flex="15">
-                    28
-                </div>
-                <div flex="15">
-                    28
-                </div>
-                <div flex="15">
-                    28
-                </div>
-                <div flex="15">
-                    28
-                </div>
-                <div flex="15">
-                    28
-                </div>
-                <div flex="15">
-                    28
-                </div>
-                <div flex="15">
-                    28
-                </div>
-                <div flex="15">
-                    28
-                </div>
-                <div flex="15">
-                    28
-                </div>
-                <div flex="15">
-                    28
-                </div>
-                <div flex="15">
-                    28
-                </div>
-                <div flex="15">
-                    28
-                </div>
-                <div flex="15">
-                    28
-                </div>
-                <div flex="15">
-                    28
-                </div>
-                <div flex="15">
-                    28
-                </div>
-                <div flex="15">
-                    28
+                <div flex="15" ng-repeat="date in vm.dates">
+                    {{ date.date | date: 'dd'}}
                 </div>
             </div>
         </div>

@@ -11,16 +11,12 @@ router.route('/:datetime')
                 $gte: firstDayOfMonth
             }
         })
-        .limit(35)
+        .limit(42)
         .sort({
             date: 1
         })
-        .then(dates => {
-            dates.map(x => {
-                x._doc.date = moment(x._doc.date).format('YYYY-MM-DD HH:mm:ss');
-            });
-            res.json(dates);
-        });
+        .then(dates => res.json(dates))
+        .error(next);
     });
 
 module.exports = router;
