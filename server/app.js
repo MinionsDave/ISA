@@ -18,6 +18,7 @@ const account = require('./routes/account');
 const file = require('./routes/file');
 const leave = require('./routes/leave');
 const calendar = require('./routes/calendar');
+const event = require('./routes/event');
 
 const User = require('./models/user');
 const Calendar = require('./models/calendar');
@@ -30,16 +31,6 @@ const Calendar = require('./models/calendar');
 
 mongoose.Promise = Promise;
 Promise.promisifyAll(crypto);
-
-/*const fs = Promise.promisifyAll(require('fs'));
-
-fs.readFileAsync("packagse.json").then(JSON.parse).then(json => {
-    console.log(json)
-}).catch(SyntaxError, function (e) {
-    console.error("file contains invalid json");
-}).error(function (e) {
-    console.error("unable to read file, because: ", e.message);
-});*/
 
 const app = express();
 
@@ -77,6 +68,7 @@ app.use('/api/file', file);
 app.use('/api/leave', leave);
 app.use('/api', account);
 app.use('/api/calendar', calendar);
+app.use('/api/event', event);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

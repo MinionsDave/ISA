@@ -2,8 +2,11 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var LeaveSchema = new Schema({
-	startDate: Date,
-	endDate: Date,
+	dates: [
+        {
+            date: Number
+        }
+    ],
 	reason: String,
 	userId: String
 });
