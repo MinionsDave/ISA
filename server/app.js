@@ -34,24 +34,21 @@ Promise.promisifyAll(crypto);
 
 const app = express();
 
-//  connect db
 mongoose.connect(config.mongodb);
+
+mongoose.connection.on('error', () => {
+  throw new Error(`unable to connect to database: ${config.db}`);
+});
 
 passport.use(User.createStrategy());
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
-
-// view engine setup
-// app.set('views', path.join(__dirname, 'views'));
-// app.engine('.html', ejs.__express);
-// app.set('view engine', 'html');
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-// app.use(cookieParser());
 app.use(session({
   secret: 'keyboard cat',
   resave: false,

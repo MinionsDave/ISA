@@ -15,6 +15,7 @@ router.route('/:datetime')
         .sort({
             date: 1
         })
+        .exec()
         .then(dates => res.json(dates))
         .error(next);
     });
