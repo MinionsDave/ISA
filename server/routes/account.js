@@ -73,7 +73,7 @@ router.route('/account/:id')
         .catch(next);
     })
 
-    .delete(function (req, res, next) {
+    .delete(authRequired, function (req, res, next) {
         User.remove({
             _id: req.params.id
         })
