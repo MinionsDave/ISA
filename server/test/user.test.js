@@ -10,6 +10,7 @@ chai.config.includeStack = true;
 const agent = request.agent(app);
 
 describe('## Account APIs', () => {
+
     let user = {
         username: 'qeq1321a@qq.com',
         password: '5465321'
