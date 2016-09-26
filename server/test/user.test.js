@@ -12,8 +12,8 @@ const agent = request.agent(app);
 describe('## Account APIs', () => {
 
     let user = {
-        username: 'qeq1321a@qq.com',
-        password: '5465321'
+        username: 'asdads@qq.com',
+        password: '123456'
     }, activeToken;
 
 

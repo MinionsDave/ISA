@@ -19,15 +19,10 @@ const file = require('./routes/file');
 const leave = require('./routes/leave');
 const calendar = require('./routes/calendar');
 const event = require('./routes/event');
+const authRequired = require('./utils/auth-required');
 
 const User = require('./models/user');
 const Calendar = require('./models/calendar');
-
-// for (let i = 1; i < 180; i++) {
-//   Calendar.create({
-//     date: 1472486400000 + 24 * 3600 * 1000 * i
-//   });
-// }
 
 mongoose.Promise = Promise;
 Promise.promisifyAll(crypto);
@@ -50,7 +45,7 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(session({
-  secret: 'keyboard cat',
+  secret: 'ISA',
   resave: false,
   saveUninitialized: false,
   maxAge: 24 * 1000 * 3600
@@ -64,7 +59,7 @@ app.use('/api/users', users);
 app.use('/api/file', file);
 app.use('/api/leave', leave);
 app.use('/api', account);
-app.use('/api/calendar', calendar);
+app.use('/api/calendar', authRequired, calendar);
 app.use('/api/event', event);
 
 // catch 404 and forward to error handler
