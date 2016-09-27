@@ -1,14 +1,15 @@
-var mongoose = require('mongoose');
-var Schema = mongoose.Schema;
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
+const EventSchema = require('./event');
 
-var CalendarSchema = new Schema({
+const CalendarSchema = new Schema({
     date: {
         type: Number,
         index: {
             unique: true
         }
     },
-    event: String
+    events: [EventSchema]
 });
 
 module.exports = mongoose.model('Calendar', CalendarSchema);
