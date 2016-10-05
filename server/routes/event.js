@@ -12,7 +12,9 @@ router.route('')
                 let promises = [];
                 for (date of body.dates) {
                     promises.push(Calendar.update({date}, {
-                        $push: savedEvent._doc
+                        $push: {
+                            events: savedEvent._id
+                        }
                     }));
                 }
                 return Promise.all(promises);

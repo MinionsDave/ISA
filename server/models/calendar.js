@@ -10,7 +10,7 @@ const CalendarSchema = new Schema({
     },
     events: [{
         type: Schema.Types.ObjectId,
-        ref: 'Calendar'
+        ref: 'Event'
     }]
 });
 
