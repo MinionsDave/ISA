@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-const EventSchema = require('./event');
 
 const CalendarSchema = new Schema({
     date: {
@@ -9,7 +8,10 @@ const CalendarSchema = new Schema({
             unique: true
         }
     },
-    events: [EventSchema]
+    events: [{
+        type: Schema.Types.ObjectId,
+        ref: 'Calendar'
+    }]
 });
 
 module.exports = mongoose.model('Calendar', CalendarSchema);
