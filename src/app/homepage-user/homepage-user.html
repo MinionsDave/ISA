@@ -40,8 +40,17 @@
                 </div>
             </div>
             <div class="body" layout layout-wrap>
-                <div flex="15" ng-repeat="date in vm.dates">
+                <div flex="15" ng-repeat="date in vm.dates" layout="column" ng-class="{1: 'recess'}[date.background]">
                     {{ date.date | date: 'dd'}}
+                    <span flex></span>
+                    <div class="event" layout layout-align="start end" ng-if="date.events.length > 0">
+                        <div flex="nogrow" 
+                            ng-repeat="event in date.events"
+                            ng-mouseenter="vm.addBackground(event)"
+                            ng-mouseleave="vm.removeBackground()"
+                            >
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

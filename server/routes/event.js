@@ -25,8 +25,8 @@ router.route('')
 
     .get((req, res, next) => {
         Event.find()
-        .then(events => res.json(events))
-        .catch(next);
+            .then(events => res.json(events))
+            .catch(next);
     });
 
 module.exports = router;

@@ -12,7 +12,8 @@
     "angular": "~1.5.3",
     "angular-local-storage": "^0.4.0",
     "ng-flow": "~2",
-    "angular-material-data-table": "^0.10.9"
+    "angular-material-data-table": "^0.10.9",
+    "lodash": "^4.16.4"
   },
   "devDependencies": {
     "angular-mocks": "~1.5.3"
