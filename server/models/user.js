@@ -28,6 +28,25 @@ let UserSchema = new Schema({
 	wechat: String,
 	interests: [
 		String
+	],
+	userType: String,
+	dealer: [
+		{
+			type: Schema.Types.ObjectId,
+			ref: 'User'
+		}
+	],
+	factory: [
+		Schema.Types.ObjectId
+	],
+	product: [
+		{
+			src: String,
+			name: String,
+			price: String,
+			w: Number,
+			h: Number
+		}
 	]
 });
 

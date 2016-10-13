@@ -8,7 +8,8 @@ angular
         'ngMessages',
         'toastr',
         'LocalStorageModule',
-        'flow'
+        'flow',
+        'ngPhotoswipe'
     ]);
 
 })();

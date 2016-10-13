@@ -1,0 +1,20 @@
+<div class="homepage-factory">
+	<md-button class="md-primary" add-product-dialog>
+		上传图片
+	</md-button>
+	<div layout layout-wrapper class="items">
+		<div flex="10" ng-repeat="item in vm.products" class="item">
+			<img ng-src="{{ item.src }}" ng-click="vm.showGallery($index)">
+		</div>
+	</div>
+	<div ng-photoswipe slides="vm.products" open="vm.open" slide-selector=".items > .item > img" on-close="vm.closeGallery()" options="vm.opts"></div>
+	<md-button class="md-primary" add-dealer-dialog>
+		添加经销商
+	</md-button>
+	<h3>我的经销商</h3>
+	<ul>
+		<li ng-repeat="item in vm.dealers">
+			{{ item. name}}
+		</li>
+	</ul>
+</div>

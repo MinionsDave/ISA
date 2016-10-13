@@ -2,12 +2,14 @@ const express = require('express');
 const router = express.Router();
 const passport = require('passport');
 const crypto = require('crypto');
+const Promise = require('bluebird');
 
 const User = require('../models/user');
 const mailer = require('../utils/mailer');
 const config = require('../config');
 const authRequired = require('../utils/auth-required');
-const join = require('bluebird').join;
+const join = Promise.join;
+const sizeOfAsync = Promise.promisify(require('image-size'))
 
 router.post('/login', passport.authenticate('local'),  ({ body: { username }}, res, next) => {
     User.findOne({
@@ -211,6 +213,85 @@ router.post('/account/resetPswd', function (req, res, next) {
 router.post('/account/update', authRequired, ({ user: { _id: userId }, body }, res, next) => {
     User.findByIdAndUpdate(userId, body)
     .then(user => res.json(user))
+    .catch(next);
+});
+
+// 创建厂家
+router.post('/factory/createFactory', ({ body }, res, next) => {
+    const username = body.username || '',
+    password = '123456';
+    body.active = true;
+    body.userType = 'factory';
+    if (username.length === 0 || password.length === 0) {
+        return res.status(400).end('用户名或密码不合法');
+    }
+    User.registerAsync(new User(body), password)
+    .then(() => res.end());
+});
+
+// 获取所有厂商
+router.get('/factory/getAllFactory', function (req, res, next) {
+    User.find({
+        userType: 'factory'
+    })
+    .then(users => res.json(users))
+    .catch(next);
+});
+
+// 厂商上传产品图片
+router.post('/factory/uploadProduct', authRequired, (req, res, next) => {
+    let product = req.body;
+    sizeOfAsync(product.src)
+    .then(dimensions => {
+        product.w = dimensions.width;
+        product.h = dimensions.height;
+        return User.update({
+                    _id: req.user._id
+                }, {
+                    $push: {product}
+                });
+    })
+    .then(() => res.end())
+    .catch(next);
+});
+
+
+// 获取所有产品资源
+router.get('/factory/getAllProduct', authRequired, (req, res, next) => {
+    User.findById(req.user._id)
+    .then(user => res.json(user.product))
+    .catch(next);
+});
+
+// 添加经销商
+router.post('/dealer/add', authRequired, (req, res, next) => {
+    let user = req.body;
+    const username = user.username || '',
+        password = '123456';
+    user.active = true;
+    user.userType = 'dealer';
+    user.factory = [req.user._id];
+    if (username.length === 0 || password.length === 0) {
+        return res.status(400).end('用户名或密码不合法');
+    }
+    User.registerAsync(new User(user), password)
+    .then(user => User.update({
+        _id: req.user._id
+    }, {
+        $push: {
+            dealer: user._id
+        }
+    }))
+    .then(() => res.end())
+    .catch(next);
+});
+
+// 获取所有经销商
+router.get('/dealer/getAll', authRequired, (req, res, next) => {
+    User.findById(req.user._id)
+    .populate('dealer')
+    .exec()
+    .then(user => res.json(user.dealer))
     .catch(next);
 });
 

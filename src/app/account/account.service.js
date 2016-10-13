@@ -14,7 +14,7 @@ angular.module('nodeInAction')
     };
 
     this.sendAgain = function (email) {
-        return $http.get(Config.URL + 'account/sendAgain/' + email);  
+        return $http.get(Config.URL + 'account/sendAgain/' + email);
     };
 
     this.activeUser = function (activeToken) {
@@ -33,12 +33,36 @@ angular.module('nodeInAction')
     this.updateUser = function (user) {
         return $http.post(Config.URL + 'account/update', user);
     };
-    
+
     this.resetPswd = function (username, pswd, token) {
         return $http.post(Config.URL + 'account/resetPswd' ,{
             username: username,
             password: pswd,
             activeToken: token
         });
+    };
+
+    this.createFactory = function (user) {
+        return $http.post(Config.URL + 'factory/createFactory', user);
+    };
+
+    this.getAllFactory = function () {
+        return $http.get(Config.URL + 'factory/getAllFactory');
+    };
+
+    this.uploadProduct = function (product) {
+        return $http.post(Config.URL + 'factory/uploadProduct', product);
+    };
+
+    this.getAllProduct = function () {
+        return $http.get(Config.URL + 'factory/getAllProduct');
+    };
+
+    this.createChildAccount = function (user) {
+        return $http.post(Config.URL + 'dealer/add', user);
+    };
+
+    this.getAllChildAccount = function () {
+        return $http.get(Config.URL + 'dealer/getAll');
     };
 });

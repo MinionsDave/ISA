@@ -3,7 +3,7 @@
         <md-toolbar>
             <div class="md-toolbar-tools">
                 <h2>
-                    新增厂家
+                    上传产品
                 </h2>
                 <span flex></span>
                 <md-button class="md-icon-button" ng-click="vm.cancel()">
@@ -16,18 +16,25 @@
         <md-dialog-content
             class="md-padding"
             layout="column"
-            layout-align="center center">
+            layout-align="center center"
+            flow-init
+            flow-name="vm.flow"
+            flow-file-success="vm.uploadSuccessCallback($file, $message, $flow)">
+            <img
+                flow-btn
+                flow-img="$flow.files[$flow.files.length - 1]">
+            <md-button class="md-primary" flow-btn>上传图片</md-button>
             <md-input-container class="md-block">
                 <label>
-                    厂家名
+                    产品名称
                 </label>
-                <input type="text" ng-model="vm.user.name" required>
+                <input type="text" ng-model="vm.product.name" required>
             </md-input-container>
             <md-input-container class="md-block">
                 <label>
-                    登陆账号
+                    销售价格
                 </label>
-                <input type="text" ng-model="vm.user.username" required>
+                <input type="text" ng-model="vm.product.price" required>
             </md-input-container>
             <div layout>
                 <span flex></span>

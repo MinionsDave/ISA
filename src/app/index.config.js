@@ -39,11 +39,11 @@
           if (rejection.status === 401) {
             var Account = $injector.get('Account');
             Account.login({
-              username: '651882883@qq.com',
+              username: 'll',
               password: '123456'
             });
           }
-          
+
           return $q.reject(rejection);
         }
       };

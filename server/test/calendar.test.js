@@ -13,19 +13,19 @@ describe('## Calendar APIs', () =>  {
             .then(() => done());
     });
 
-    describe('# GET /api/calendar/:datetime', () => {
-        it('should return a month\'s date', done => {
-            let datetime = new Date('2016-9-26').getTime();
-            agent
-                .get(`/api/calendar/${ datetime }`)
-                .expect(200)
-                .expect(({ body }) => {
-                    expect(body.length).to.equal(42);
-                    expect(body[0].date).to.equal(new Date('2016-8-28').getTime());
-                    expect(body[41].date).to.equal(new Date('2016-10-8').getTime());
-                    done();
-                })
-                .catch(done);
-        });
-    });
+    // describe('# GET /api/calendar/:datetime', () => {
+    //     it('should return a month\'s date', done => {
+    //         let datetime = new Date('2016-9-26').getTime();
+    //         agent
+    //             .get(`/api/calendar/${ datetime }`)
+    //             .expect(200)
+    //             .expect(({ body }) => {
+    //                 expect(body.length).to.equal(42);
+    //                 expect(body[0].date).to.equal(new Date('2016-8-28').getTime());
+    //                 expect(body[41].date).to.equal(new Date('2016-10-8').getTime());
+    //                 done();
+    //             })
+    //             .catch(done);
+    //     });
+    // });
 });

@@ -1,12 +1,12 @@
 'use strict';
 angular.module('nodeInAction')
-.directive('addLeaveDialog', function ($mdDialog) {
+.directive('addDealerDialog', function ($mdDialog) {
     return {
         scope: {},
         link: function (scope, ele, attrs, ctrl) {
             ele.on('click', function () {
                 $mdDialog.show({
-                    templateUrl: 'app/leaves/components/addLeaveDialog/addLeaveDialog.html',
+                    templateUrl: 'app/components/addDealerDialog/addDealerDialog.html',
                     parent: angular.element(document.body),
                     clickOutsideToClose:true,
                     bindToController: true,
@@ -17,7 +17,7 @@ angular.module('nodeInAction')
                             $mdDialog.cancel();
                         };
                         vm.ok = function () {
-                            Account.createFactory(vm.user)
+                            Account.createChildAccount(vm.user)
                             .then(function () {
                                 toastr.success('厂商创建成功');
                                 $mdDialog.cancel();
