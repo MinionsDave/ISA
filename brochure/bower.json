@@ -1,0 +1,22 @@
+{
+  "dependencies": {
+    "ionic": "~1.3.0",
+    "angular": "~1.5.0",
+    "angular-animate": "~1.5.0",
+    "angular-sanitize": "~1.5.0",
+    "angular-ui-router": "~0.3.1",
+    "ngCordova": "~0.1.17-alpha",
+    "ng-photoswipe": "^0.2.0"
+  },
+  "devDependencies": {
+    "angular-mocks": "~1.5.0"
+  },
+  "resolutions": {
+    "angular": "~1.5.0",
+    "angular-animate": "~1.5.0",
+    "angular-sanitize": "~1.5.0",
+    "angular-ui-router": "~0.3.1"
+  },
+  "name": "brochure",
+  "private": true
+}

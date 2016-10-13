@@ -1,0 +1,17 @@
+<ion-view>
+    <ul class="slide-list">
+       <li ng-repeat="s in vm.slides track by $index" ng-click="vm.showGallery($index)">
+           <img ng-src="{{ s.src }}" alt="slide number {{ $index }}" />
+           <h4>
+               {{ s.name }}
+           </h4>
+           <h3>
+               ￥{{ s.price }}
+           </h3>
+       </li>
+    </ul>
+
+    <div ng-photoswipe slides="vm.slides" open="vm.open" slide-selector=".slide-list > li > img"
+        on-close="vm.closeGallery()" options="vm.opts"></div>
+    </div>
+</ion-view>

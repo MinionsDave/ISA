@@ -1,0 +1,18 @@
+{
+  "generator-m-ionic": {
+    "answers": {
+      "appName": "brochure",
+      "appId": "isa.qa.brochure",
+      "ionicCss": true,
+      "bowerPackages": [],
+      "platforms": [
+        "ios"
+      ],
+      "plugins": [
+        "cordova-plugin-device"
+      ],
+      "appModule": "brochure",
+      "ecosystems": []
+    }
+  }
+}

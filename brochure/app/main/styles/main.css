@@ -1,0 +1,32 @@
+.slide-list > li {
+    display: inline-block;
+}
+
+.slide-list > li > img {
+    width: 300px;
+    height: 200px;
+    margin: 0 10px;
+}
+
+.slide-list {
+    padding-left: 30px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    overflow: scroll;
+}
+
+.slide-list h3, .slide-list h4 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    padding-left: 10px;
+    font-size: 14px;
+}
+
+.slide-list h3 {
+    font-size: 18px;
+    font-weight: bold;
+}
+
