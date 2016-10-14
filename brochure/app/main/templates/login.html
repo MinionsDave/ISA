@@ -1,0 +1,20 @@
+<ion-view view-title="登陆">
+    <ion-content>
+        <h2 class="text-center">
+            登陆
+        </h2>
+        <div class="list">
+            <label class="item item-input">
+                <span class="input-label">Username</span>
+                <input type="text" ng-model="vm.user.username">
+            </label>
+            <label class="item item-input">
+                <span class="input-label">Password</span>
+                <input type="password" ng-model="vm.user.password">
+            </label>
+            <button class="button button-positive button-block" ng-click="vm.login()">
+                登陆
+            </button>
+        </div>
+    </ion-content>
+</ion-view>

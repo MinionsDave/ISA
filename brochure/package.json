@@ -57,12 +57,8 @@
   "generator-m-ionic": {
     "proxies": [
       {
-        "proxyMapFrom": "/postman-proxy",
-        "proxyMapTo": "https://echo.getpostman.com"
-      },
-      {
-        "proxyMapFrom": "/another-proxy",
-        "proxyMapTo": "https://echo.getpostman.com"
+        "proxyMapFrom": "/api",
+        "proxyMapTo": "http://192.168.2.101:1994/api"
       }
     ]
   }

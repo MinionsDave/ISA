@@ -14,8 +14,24 @@ angular.module('main', [
     .state('gallery', {
       url: '/gallery',
       templateUrl: 'main/templates/gallery.html',
-      controller: 'GalleryCtrl as vm'
-      // templateUrl: 'main/templates/<someTemplate>.html',
-      // controller: 'SomeCtrl as ctrl'
-    });
+      controller: 'GalleryCtrl as vm',
+      resolve: {
+        Products: function (Product, $q) {
+          var d = $q.defer();
+          Product.getAll()
+          .success(function (products) {
+            angular.forEach(products, function (val) {
+              val.title = val.name + '<br>' + val.price;
+            });
+            d.resolve(products);
+          });
+          return d.promise;
+        }
+      }
+    })
+    .state('login', {
+      url: '/login',
+      templateUrl: 'main/templates/login.html',
+      controller: 'LoginCtrl as vm'
+    })
 });
